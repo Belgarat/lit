@@ -1,0 +1,58 @@
+<?php
+Class connessione{
+	
+	private $file;
+	private $conn;
+	
+	function __construct($file){
+		$this->file = $file;
+	}
+
+	public function redirect($url,$tempo = FALSE ){
+	 if(!headers_sent() && $tempo == FALSE ){
+	  header('Location:' . $url);
+	 }elseif(!headers_sent() && $tempo != FALSE ){
+	  header('Refresh:' . $tempo . ';' . $url);
+	 }else{
+	  if($tempo == FALSE ){
+	    $tempo = 0;
+	  }
+	  echo "<meta http-equiv=\"refresh\" content=\"" . $tempo . ";url=" . $url . "\">";
+	  }
+	}
+	
+	function connect(){
+		//require_once($_SERVER["DOCUMENT_ROOT"] . "/" . $this->file);
+		require_once($_SERVER["DOCUMENT_ROOT"]."/cfg/config.php");
+		//Code to make sure that the $database field was filled and code to connect to the database
+		if ($database == ""){
+			//check it the database exist
+			$query = "use members";
+			//if this query is succesfull, and returns a 1. this means that the database members can be used.
+			//if it returns 'null' then it doesn't exist.
+			if (mysql_query($query) == null){
+				//if it doesn't exist we create it and connect to it.
+				$query = "CREATE DATABASE members";
+				mysql_query($query);
+				$this->conn = mysql_connect($server, $username, $password) or die ("Could not connect MySQL"); 
+				mysql_select_db($database,$this->conn) or die ("Could not open database");
+			}
+			else{
+				//it already exist so we will connect to it.
+				$database= "members";
+				$this->conn = mysql_connect($server,$username,$password) or die ("Could not connect MySQL"); 
+				mysql_select_db($database,$this->conn) or die ("Could not open database");		
+			}	
+		}
+		else{
+			// connect or show an error.
+			$this->conn = mysql_connect($server,$username,$password) or die ("Could not connect MySQL"); 
+			mysql_select_db($database,$this->conn) or die ("Could not open database");
+		}
+	}
+	
+	function closedb(){
+		mysql_close();
+	}
+}
+?>

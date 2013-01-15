@@ -1,0 +1,34 @@
+<?php
+/*
+ * Created on 12/giu/07
+ *
+ * To change the template for this generated file go to
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+ */
+ 
+session_start();
+require_once("../cfg/config.php");
+require_once("../cfg/pbf_global.php");
+require_once(SRV_ROOT."/class/db/database.php");
+require_once(SRV_ROOT."/class/utente.php");
+
+$oDb = Db::getInstance();
+$oDb->Open();
+
+$oUt = new cUtente($oConn);
+
+$oUt->id=$_SESSION["ID"];
+$oUt->Leggi();
+$oUt->dati["DataOraLogin"]=time();
+$oUt->Aggiorna($oUt->dati);
+
+
+//ASINELLO - distruggere anche l'oggetto utenti.
+$sSql="delete from useronline where IDUt=" . $_SESSION["ID"];
+mysql_query($sSql);
+
+session_unset();
+session_destroy();
+
+$oConn->redirect(HTTP_ROOT . "/index.php");
+?>

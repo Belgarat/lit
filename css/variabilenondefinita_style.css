@@ -1,0 +1,494 @@
+.cTitolo
+{
+    BORDER-RIGHT: #4e1d69 1px solid;
+    BORDER-TOP: #4e1d69 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: x-small;
+    BORDER-LEFT: #4e1d69 1px solid;
+    COLOR: #3b1251;
+    BORDER-BOTTOM: #4e1d69 1px solid;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+.BarraMenu{
+	display:block;
+	height:16px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#3B1251;
+	padding-left:1px;
+	background-color:#9184a3;
+	margin:2px;
+	color: #3b1251;
+	text-align: left;
+}
+
+TABLE.LinkBanner
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14px;
+    BACKGROUND-IMAGE: url("../img/blog/sfum_vert.png");
+}
+#divBanner
+{
+    BACKGROUND: url("../img/blog/banner.jpg") fixed no-repeat center center;
+    WIDTH: 100%;
+    HEIGHT: 200px;
+}
+#idPart
+{
+    BORDER-RIGHT: #3b1251 0px solid;
+    PADDING-RIGHT: 30px;
+    BORDER-TOP: #3b1251 0px solid;
+    PADDING-LEFT: 20px;
+    BACKGROUND: url("../img/pergamena_partner.jpg") no-repeat left top;
+    PADDING-BOTTOM: 0px;
+    MARGIN: auto;
+    OVERFLOW: auto;
+    BORDER-LEFT: #3b1251 0px solid;
+    WIDTH: 525px;
+    PADDING-TOP: 20px;
+    BORDER-BOTTOM: #3b1251 0px solid;
+    HEIGHT: 355px;
+    TEXT-ALIGN: left
+}
+#idPartImm
+{
+    BORDER-RIGHT: #3b1251 0px solid;
+    BORDER-TOP: #3b1251 0px solid;
+    FLOAT: left;
+    MARGIN: 5px;
+    OVERFLOW: auto;
+    BORDER-LEFT: #3b1251 0px solid;
+    WIDTH: 180px;
+    BORDER-BOTTOM: #3b1251 0px solid;
+    HEIGHT: 120px;
+    block: inline
+}
+A
+{
+    COLOR: #3b1251;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A:active
+{
+    COLOR: #ffffff;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    LEFT: 5px;
+    COLOR: #ffffff;
+    BACKGROUND-COLOR: transparent;
+    TEXT-DECORATION: underline
+}
+.tblContenuti
+{
+    BORDER-RIGHT: #4e1d69 1px double;
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: #4e1d69 1px double;
+    PADDING-LEFT: 2px;
+    FONT-SIZE: 11px;
+    PADDING-BOTTOM: 2px;
+    BORDER-LEFT: #4e1d69 1px double;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: #4e1d69 1px double
+}
+TD.tblContenuti
+{
+    PADDING-RIGHT: 10px;
+    PADDING-LEFT: 10px;
+    PADDING-BOTTOM: 10px;
+    PADDING-TOP: 10px
+}
+TH.tblContenuti
+{
+    PADDING-RIGHT: 10px;
+    PADDING-LEFT: 10px;
+    PADDING-BOTTOM: 10px;
+    PADDING-TOP: 10px
+}
+#tblForum
+{
+    FONT-SIZE: 11px;
+    FONT-STYLE: italic;
+    FONT-FAMILY: Georgia, Times New Roman, Times, serif;
+    TEXT-ALIGN: justify;
+    color: '#ece9d8'
+}
+.cTableSegnala
+{
+    BORDER-RIGHT: #4e1d69 1px solid;
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: #4e1d69 1px solid;
+    PADDING-LEFT: 2px;
+    FONT-SIZE: x-small;
+    PADDING-BOTTOM: 2px;
+    BORDER-LEFT: #4e1d69 1px solid;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: #4e1d69 1px solid;
+    FONT-FAMILY: 'Book Antiqua', Arial, 'Times New Roman';
+    BACKGROUND-COLOR: transparent
+}
+.cNotizia
+{
+    FONT-SIZE: x-small;
+    COLOR: red;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, 'Times New Roman'
+}
+.cImmOver:hover
+{
+    BORDER-RIGHT: #835084 2px solid;
+    BORDER-TOP: #835084 2px solid;
+    BORDER-LEFT: #835084 2px solid;
+    BORDER-BOTTOM: #835084 2px solid
+}
+.cImmOver
+{
+    BORDER-RIGHT: #19051c 2px solid;
+    BORDER-TOP: #19051c 2px solid;
+    BORDER-LEFT: #19051c 2px solid;
+    BORDER-BOTTOM: #19051c 2px solid
+}
+A.cLinkMenu
+{
+    FONT-SIZE: 12px;
+    COLOR: #3b1251;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A.cLinkMenu:active
+{
+    FONT-SIZE: 12px;
+    COLOR: #3b1251;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A.cLinkMenu:visited
+{
+    FONT-SIZE: 12px;
+    COLOR: #3b1251;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A.cLinkMenu:hover
+{
+    FONT-SIZE: 12px;
+    LEFT: 5px;
+    COLOR: #ffffff;
+    BACKGROUND-COLOR: transparent;
+    TEXT-DECORATION: underline
+}
+.cTestoNorm
+{
+    FONT-SIZE: 12px;
+    COLOR: white;
+    FONT-FAMILY: Book Antiqua , Tahoma, Verdana, 'Times New Roman'
+}
+SPAN.cTestoNorm1
+{
+    FONT-SIZE: 12px;
+    COLOR: white;
+    FONT-FAMILY: Book Antiqua , Tahoma, Verdana, 'Times New Roman';
+    TEXT-ALIGN: justify
+}
+.cDivAccesso
+{
+    MARGIN-LEFT: 10px;
+    MARGIN-RIGHT: 10px
+}
+.menubox
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    FONT-SIZE: 11px;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 5px;
+    COLOR: white;
+    BORDER-TOP-STYLE: none;
+    PADDING-TOP: 0px;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana;
+    BORDER-RIGHT-STYLE: none;
+    BORDER-LEFT-STYLE: none;
+    TEXT-ALIGN: left;
+    BORDER-BOTTOM-STYLE: none
+}
+.menubox_tl
+{
+    PADDING-RIGHT: 0px;
+    BACKGROUND-POSITION: left top;
+    PADDING-LEFT: 0px;
+    BACKGROUND-IMAGE: url(./images/tl.jpg);
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    WIDTH: 15px;
+    BORDER-TOP-STYLE: none;
+    PADDING-TOP: 0px;
+    BACKGROUND-REPEAT: no-repeat;
+    BORDER-RIGHT-STYLE: none;
+    BORDER-LEFT-STYLE: none;
+    HEIGHT: 15px;
+    BORDER-BOTTOM-STYLE: none
+}
+.menubox_tc
+{
+    PADDING-RIGHT: 0px;
+    BACKGROUND-POSITION: left top;
+    PADDING-LEFT: 0px;
+    BACKGROUND-IMAGE: url(./images/tc.jpg);
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    BORDER-TOP-STYLE: none;
+    PADDING-TOP: 0px;
+    BACKGROUND-REPEAT: repeat-x;
+    BORDER-RIGHT-STYLE: none;
+    BORDER-LEFT-STYLE: none;
+    HEIGHT: 15px;
+    BORDER-BOTTOM-STYLE: none
+}
+.menubox_tr
+{
+    PADDING-RIGHT: 0px;
+    BACKGROUND-POSITION: left top;
+    PADDING-LEFT: 0px;
+    BACKGROUND-IMAGE: url(./images/tr.jpg);
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    WIDTH: 15px;
+    BORDER-TOP-STYLE: none;
+    PADDING-TOP: 0px;
+    BACKGROUND-REPEAT: no-repeat;
+    BORDER-RIGHT-STYLE: none;
+    BORDER-LEFT-STYLE: none;
+    HEIGHT: 15px;
+    BORDER-BOTTOM-STYLE: none
+}
+.menubox_cl
+{
+    PADDING-RIGHT: 0px;
+    BACKGROUND-POSITION: left top;
+    PADDING-LEFT: 0px;
+    BACKGROUND-IMAGE: url(./images/lc.jpg);
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    WIDTH: 15px;
+    BORDER-TOP-STYLE: none;
+    PADDING-TOP: 0px;
+    BACKGROUND-REPEAT: repeat-y;
+    BORDER-RIGHT-STYLE: none;
+    BORDER-LEFT-STYLE: none;
+    BORDER-BOTTOM-STYLE: none
+}
+.menubox_cc
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    BORDER-TOP-STYLE: none;
+    PADDING-TOP: 0px;
+    BORDER-RIGHT-STYLE: none;
+    BORDER-LEFT-STYLE: none;
+    BACKGROUND-COLOR: transparent;
+    BORDER-BOTTOM-STYLE: none
+}
+.menubox_cr
+{
+    PADDING-RIGHT: 0px;
+    BACKGROUND-POSITION: left top;
+    PADDING-LEFT: 0px;
+    BACKGROUND-IMAGE: url(./images/rc.jpg);
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    WIDTH: 15px;
+    BORDER-TOP-STYLE: none;
+    PADDING-TOP: 0px;
+    BACKGROUND-REPEAT: repeat-y;
+    BORDER-RIGHT-STYLE: none;
+    BORDER-LEFT-STYLE: none;
+    BORDER-BOTTOM-STYLE: none
+}
+.menubox_bl
+{
+    PADDING-RIGHT: 0px;
+    BACKGROUND-POSITION: left bottom;
+    PADDING-LEFT: 0px;
+    BACKGROUND-IMAGE: url(./images/bl.jpg);
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    WIDTH: 15px;
+    BORDER-TOP-STYLE: none;
+    PADDING-TOP: 0px;
+    BACKGROUND-REPEAT: no-repeat;
+    BORDER-RIGHT-STYLE: none;
+    BORDER-LEFT-STYLE: none;
+    HEIGHT: 15px;
+    BORDER-BOTTOM-STYLE: none
+}
+.menubox_bc
+{
+    PADDING-RIGHT: 0px;
+    BACKGROUND-POSITION: left bottom;
+    PADDING-LEFT: 0px;
+    BACKGROUND-IMAGE: url(./images/bc.jpg);
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    BORDER-TOP-STYLE: none;
+    PADDING-TOP: 0px;
+    BACKGROUND-REPEAT: repeat-x;
+    BORDER-RIGHT-STYLE: none;
+    BORDER-LEFT-STYLE: none;
+    HEIGHT: 15px;
+    BORDER-BOTTOM-STYLE: none
+}
+.menubox_br
+{
+    PADDING-RIGHT: 0px;
+    BACKGROUND-POSITION: left bottom;
+    PADDING-LEFT: 0px;
+    BACKGROUND-IMAGE: url(./images/br.jpg);
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    WIDTH: 15px;
+    PADDING-TOP: 0px;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 15px
+}
+UL.menu3
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    WIDTH: 185px;
+    PADDING-TOP: 0px;
+    LIST-STYLE-TYPE: none
+}
+UL.menu3 LI A
+{
+    PADDING-RIGHT: 1em;
+    DISPLAY: block;
+    PADDING-LEFT: 1em;
+    PADDING-BOTTOM: 0px;
+    LINE-HEIGHT: 2em;
+    PADDING-TOP: 0px;
+    HEIGHT: 2em;
+    TEXT-DECORATION: none
+}
+UL.menu3 LI
+{
+    DISPLAY: inline
+}
+UL.menu3 LI A:link
+{
+    COLOR: #3b1251
+}
+UL.menu3 LI A:visited
+{
+    COLOR: #3b1251
+}
+UL.menu3 LI A:hover
+{
+    BACKGROUND: url("../img/blog/sfumato.png") #eee repeat-y 100% 0px;
+    COLOR: #ffffff
+}
+UL.menu3 LI A:active
+{
+    BACKGROUND: url("../img/blog/sfumato.png") #eee repeat-y 100% 0px;
+    COLOR: #ffffff
+}
+UL.menu_or
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    WIDTH: 185px;
+    PADDING-TOP: 0px;
+    LIST-STYLE-TYPE: none
+}
+UL.menu_or LI A
+{
+    PADDING-RIGHT: 1em;
+    DISPLAY: block;
+    PADDING-LEFT: 1em;
+    PADDING-BOTTOM: 0px;
+    LINE-HEIGHT: 2em;
+    PADDING-TOP: 0px;
+    HEIGHT: 2em;
+    TEXT-DECORATION: none
+}
+UL.menu_or LI
+{
+    DISPLAY: inline
+}
+UL.menu_or LI A:link
+{
+    COLOR: #3b1251
+}
+UL.menu3 LI A:visited
+{
+    COLOR: #3b1251
+}
+UL.menu_or LI A:hover
+{
+    BACKGROUND: url(sfumato1.png) #eee repeat-y 100% 0px;
+    COLOR: #ffffff
+}
+UL.menu3 LI A:active
+{
+    BACKGROUND: url(sfumato1.png) #eee repeat-y 100% 0px;
+    COLOR: #ffffff
+}
+A.cLinkSottoMenu
+{
+    FONT-SIZE: 12px;
+    COLOR: #b95033;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A.cLinkSottoMenu:active
+{
+    FONT-SIZE: 12px;
+    COLOR: #b95033;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A.cLinkSottoMenu:visited
+{
+    FONT-SIZE: 12px;
+    COLOR: #b95033;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A.cLinkSottoMenu:hover
+{
+    FONT-SIZE: 12px;
+    LEFT: 5px;
+    COLOR: #ffffff;
+    BACKGROUND-COLOR: transparent;
+    TEXT-DECORATION: underline
+}
+.cTestoDei
+{
+    FONT-SIZE: 12px
+}
+.cParTab
+{
+    BORDER-RIGHT: #993399 1px solid;
+    PADDING-RIGHT: 3px;
+    BORDER-TOP: #993399 1px solid;
+    PADDING-LEFT: 3px;
+    FONT-SIZE: 11px;
+    PADDING-BOTTOM: 3px;
+    BORDER-LEFT: #993399 1px solid;
+    PADDING-TOP: 3px;
+    BORDER-BOTTOM: #993399 1px solid;
+    FONT-STYLE: italic;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma;
+    BACKGROUND-COLOR: transparent;
+    TEXT-ALIGN: justify;
+    font-color: #ece9d8
+}

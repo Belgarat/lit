@@ -1,0 +1,60 @@
+<div class="box_reply" id="<!-- ID_DIV -->" style="display:none;">
+    <form class="form" name="formReply" enctype="" method="post" action="<!-- ACTION -->" id="id_FormReply"> 
+        <table class="form">
+            <tbody>
+            <tr>
+                <td class="formlabel">
+                </td>
+                <td>
+                    <input class="form" type="hidden" name="txtThread" id="id_txtThread" value="<!-- ID_THREAD -->" readonly="">
+                    <input class="form" type="hidden" name="txtTopic" id="id_txtTopic" value="<!-- ID_TOPIC -->" readonly="">
+                    <input type="hidden" name="txtIdPost" id="id_txtIdPost" value="<!-- ID_POST -->" size="5">
+                </td>
+            </tr>
+            <tr>
+                <td class="formlabel">
+                    <label class="formlabel" id="lblUtente" title="Utente">Utente: </label> 
+                </td>
+                <td>
+                    <input type="hidden" name="txtIdNome" id="id_txtIdNome" value="<!-- ID_PG -->" size="20" readonly="">
+                    <input class="form" type="text" name="txtNome" id="id_txtNome" value="<!-- POSTER -->" size="20" onfocus="$('help_bar').innerHTML='Nome utente del post'" <!-- READONLY -->>
+                </td>
+            </tr>
+            <tr>
+                <td class="formlabel">
+                        <label id="lblTitolo" title="Titolo">Titolo: </label> 
+                </td>
+                <td>
+                    <input class="form" type="text" name="txtOggetto" id="id_txtOggetto" value="" size="50" onfocus="$('help_bar').innerHTML='Inserire oggetto del post'">
+                </td>
+            </tr>
+            <tr>
+                <td class="formlabel">
+                    <label id="lblMessaggio" title="Messaggio">Messaggio: </label> 
+                </td>
+                <td>
+                     <textarea class="form" rows="20" name="txtMessaggio" id="id_txtMessaggio" cols="53" onfocus="$('help_bar').innerHTML='Inserire messaggio'"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="formlabel">
+                    <label id="lblFirma" title="Firma">Firma: </label> 
+                </td>
+                <td>
+                    <textarea class="form" name="txtFirma" id="id_txtFirma" row="3" cols="53" onfocus="$('help_bar').innerHTML='Inserire firma utente'"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td> 
+                </td>
+                <td align="right">
+                        <input type="button" name="bSalva" value="Reply" onclick="javascript:
+                        new Ajax.Updater('DivReply', 'src/ajax/forum_form_reply.php', {method: 'post', parameters: Form.serialize($('DivReply'))});">
+                </td>
+            </tr>
+        </table>
+        <h1 class="menu_bar"><a id="aShowSmile">Smile</a> - <a id="aHideReply" href="#">Chiudi Reply</a></h1>
+        <h1 id="help_bar"></h1>
+        </form>
+</div>
+	

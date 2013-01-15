@@ -1,0 +1,59 @@
+<?php
+session_start();
+require_once("../../cfg/config.php");
+
+$url_section = explode(".",$_SERVER["SERVER_NAME"]);
+require_once("../../cfg/" . $url_section[0] . "/global.php");
+require_once(SRV_ROOT . "/" . $url_section[0] . "_inclusions.php");
+
+$id_topic = @$_GET["id_topic"];
+$id_post = @$_GET["id_post"];
+
+switch (@$_GET["answer"]) {
+	case "confirm":
+		echo "Confermi operazione?\r\n<br>";
+		echo "<a href='javascript:void(0);' onclick='javascript:var udiv = new Ajax.Updater(\"" . $id_post . "\", \"" . HTTP_ROOT . "/src/ajax/forum_post_delete.php\",{method: \"get\",parameters: \"url=" . $_SERVER["REQUEST_URI"] . "&answer=Y&id_post=" . $id_post . "\"});'>SI</a>\r\n<br>";
+		echo "<a href='javascript:void(0);' onclick='javascript:var udiv = new Ajax.Updater(\"" . $id_post . "\", \"" . HTTP_ROOT . "/src/ajax/forum_post_delete.php\",{method: \"get\",parameters: \"url=" . $_SERVER["REQUEST_URI"] . "&answer=N&id_post=" . $id_post . "\", onSuccess: function () { $(\"" . $id_post . "\").innerHTML = \"Topic eliminato.\"; }});'>NO</a>\r\n<br>";
+		break;
+		
+	case "N":
+		echo "Operazione annullata!\r\n";
+		break;
+		
+	case "Y":
+		$oDb = Db::getInstance();
+		$oDb->Open();
+		$oUt = new cUtente();
+		$oUt->id = $_SESSION["ID"];
+		$oUt->Leggi();
+
+                $oForum = new cForum();
+                $oForum->set_id_sito($_SERVER["SITO"]);
+                $oForum->set_user($_SERVER["SITO"],$oUt);
+		$oValidate = new cValidate();
+
+                $oForum->set_id_topic($id_topic);
+		$oForum->set_id_post($id_post);
+
+                $control=$oForum->let_permission($oForum->let_id_post());
+                $control_topic=$oForum->let_permission($oForum->let_id_topic());
+
+                if(($control['cForum_post']['Delete']==1) OR ($control_topic['cForum_topic']['Delete']==1)){
+
+                    $rst = $oForum->delete_post();
+
+                    if ($rst[0]){
+                            echo "Cancellazione effettuata!<br>\r\n";
+                            echo "Ricaricare la pagina per aggiornare la lista.<br>\r\n";
+                    } else {
+                            echo "Cencellazione fallita! Errore: " . $rst[1];
+                    }
+                    break;
+                }else{
+                    echo "Impossibile procedere. <SPAN style='color: red'></SPAN><br \>Autorizzazioni insufficienti.<br \><br \>\r\n";
+                }
+		
+}
+
+
+?>

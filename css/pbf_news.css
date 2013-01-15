@@ -1,0 +1,96 @@
+.News_list{
+	display:block;
+	float:right;
+	border-width:1px;
+	padding:3px;
+	margin:3px;
+	border-style:dotted;
+	border-color:white;
+}
+UL.News_default{
+	padding-left:0px;
+}
+UL.News_default li{
+	list-style-type: none;
+}
+.News_default{
+	padding-bottom:3px;
+	text-align:justify;
+}
+.News_default_title{
+	clear:both;
+	font-style: italic;
+	font-family: 'Book Antiqua' , Verdana, 'Times New Roman' , Times, serif;
+	color:white;
+	font-size: 12px;
+}
+.News_default_author{
+	font-style: normal;
+	font-weight: bold;
+	font-family: 'Book Antiqua' , Verdana, 'Times New Roman' , Times, serif;
+	color:white;
+	font-size: 12px;
+}
+.News_default_data{
+	font-style: normal;
+	font-family: 'Book Antiqua' , Verdana, 'Times New Roman' , Times, serif;
+	color:white;
+	font-size: 12px;
+}
+.News_default_body{
+	font-style: italic;
+	font-family: 'Book Antiqua' , Verdana, 'Times New Roman' , Times, serif;
+	color:white;
+	font-size: 12px;
+}
+.News_default_image{
+	display:block;
+	float:left;
+}
+UL.News_araldo{
+	padding-left:0px;
+}
+UL.News_araldo li{
+	list-style-type: none;
+}
+//stule Araldo
+.News_araldo{	
+	padding-bottom:3px;
+	text-align:justify;
+}
+.News_araldo_title{
+	//font-style: italic;
+	//font-family: 'Book Antiqua' , Verdana, 'Times New Roman' , Times, serif;
+	//color:white;
+	//font-size: 12px;
+	 padding-top:10px;
+	 clear:both;
+	 font-family:'Book Antiqua' , Verdana, 'Times New Roman' , Times, serif; 
+	 font-size:16px; 
+	 color:#800080; 
+	 font-weight:bold; 
+}
+.News_araldo_author{
+	font-style: italic;
+	font-weight: bold;
+	font-family: 'Book Antiqua' , Verdana, 'Times New Roman' , Times, serif;
+	color:white;
+	font-size: 12px;
+}
+.News_araldo_data{
+	font-style: italic;
+	font-weight: bold;
+	font-family: 'Book Antiqua' , Verdana, 'Times New Roman' , Times, serif;
+	color:white;
+	font-size: 12px;
+}
+.News_araldo_body{
+	text-align:justify;
+	font-family: 'Book Antiqua' , Verdana, 'Times New Roman' , Times, serif;
+	color:white;
+	font-size: 12px;
+}
+.News_araldo_image{
+	display:block;
+	float:left;
+}

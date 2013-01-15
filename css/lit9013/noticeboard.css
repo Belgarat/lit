@@ -1,0 +1,103 @@
+#main_noticeboard{
+	height: 800px;
+	background-image: url('../img/prova_box4.png');
+    background-repeat: no-repeat;
+    background-position: 45% 36%;
+}
+#Notice1{
+	position:absolute;
+	border: 0px solid #3b1251;
+	top: 155px;
+	left: 10px;
+	width: 330px;
+	height: 250px;
+	overflow: hidden;
+    background-image: url('../img/dmono.jpg');
+    background-repeat: no-repeat;
+    background-position: 98% 95%;
+}
+#Notice2{
+	position:absolute;
+	border: 0px solid #3b1251;
+	top: 155px;
+	left: 360px;
+	width: 330px;
+	height: 250px;
+	overflow: hidden;	
+    background-image: url('../img/dmono.jpg');
+    background-repeat: no-repeat;
+    background-position: 98% 95%;
+}
+#Notice3{
+	position:absolute;
+	border: 0px solid #3b1251;
+	top: 420px;
+	left: 10px;
+	width: 330px;
+	height: 250px;
+	overflow: hidden;
+    background-image: url('../img/dmono.jpg');
+    background-repeat: no-repeat;
+    background-position: 98% 95%;
+}
+#Notice4{
+	position:absolute;
+	border: 0px solid #3b1251;
+	top: 420px;
+	left: 360px;
+	width: 330px;
+	height: 250px;
+	overflow: hidden;
+    background-image: url('../img/dmono.jpg');
+    background-repeat: no-repeat;
+    background-position: 98% 95%;
+}
+#Notice5{
+	position:absolute;
+	/*border: 1px solid #3b1251;*/
+	top: 25px;
+	left: 15px;
+	width: 655px;
+	/*height: 115px;*/
+    padding: 5px;
+    text-align: center;
+	/*background: url(<!-- IMG_BOARD5 -->) no-repeat center;*/
+	/*overflow: hidden;*/
+}
+#Notice6{
+	position:absolute;
+	border: 1px solid #3b1251;
+	top: 680px;
+	left: 0px;
+	width: 690px;
+	height: 50px;
+	overflow: hidden;
+}
+.notice{
+    list-style: none;
+    padding:0px;
+    margin:0px;
+}
+.notice_title{
+	border: 1px solid #3b1251;
+	margin-right: 3px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	text-align: left;
+	width: 80%;
+	background-color: #290b35;
+}
+.notice_title_top{
+	margin-right: 3px;
+	margin-top: 6px;
+	margin-bottom: 2px;
+	text-align: center;
+	text-decoration: underline;
+	width: 100%;
+}
+.content_board{
+    margin:0px;
+    padding:0px;
+    padding-top: 10px;
+    padding-left: 10px;
+}

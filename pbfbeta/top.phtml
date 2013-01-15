@@ -1,0 +1,45 @@
+<div id="id_PluginBoard" style="display:none;"></div>
+<div id="contenitore">
+    <div id="head">
+        <img style="position: absolute;left:-170;margin:0 auto;z-index:-1;" src="<?php echo THEMES ?>/img/laterali.png">
+        <img style="position: absolute;left:0;z-index:-2;" src="<?php echo THEMES ?>/img/pbf_top.jpg">
+        <a title="Rss/Feed LiT news" style="display:block;z-index:10;position:absolute;left:880px;top:-10px;" href="feed/public/allnews.rss"><img src="img/pbf/ico/rss32.png"></a>
+        <a title="Rss/Feed LiT Forum in game e OT" style="display:block;z-index:10;position:absolute;left:880px;top:40px;" href="feed/public/forum.rss"><img src="img/pbf/ico/rss32_forum.png"></a>
+    </div>
+    <div id="top" style="color:#b95033;">
+        <div id='top_left' style="float:left;">
+                <?php $oMenu->ShowMenu($_SERVER["SITO"],0);?>
+                <?php $oMenu->ShowMenu($_SERVER["SITO"],8,"Ambientazione");?>
+                <a href="index.php?IdP=82"> .: NOTICEBOARD :.</a>
+                <a id="id_onclick_online" href="javascript:void(0);"> .: OnLine(<span id="id_num_online"><!-- NUM_USERS_ONLINE --></span>) :.</a>
+        </div>
+        <div id='top_right'>
+        <?php
+                //$oPage->show_online();
+        if ($_SESSION["ID"]==""){
+                ?>
+                <a class="LinkBanner" href="./index.php?IdP=20">.: Login :. </a>
+                <a style="text-align:center;" href="index.php?IdP=108"> . .: FORUM :.</a>
+                <?php
+        }else{
+                echo "<a href='javascript:void(0);' onClick=\"javascript:apriUtente('','".$oUt->id."');\"> " . $oUt->dati["Name"] . "</a> > ";
+                echo " " . $oUt->show_list_pg() . " ";
+                if(($oUt->is_group("master") or $oUt->is_group("admins"))){
+                        ?>
+                        <a href="javascript: void(0);" class="LinkBanner" OnClick="javascript: $('id_master_menu').style.left=Event.pointerX(event);$('id_master_menu').style.top=Event.pointerY(event);$('id_master_menu').toggle();">.: Master :.</a>
+                        <ul id='id_master_menu' style="display:none;">
+                                <li><a href="javascript: void(0);" OnClick="javascript: $('id_master_menu').fade({duration: 0.5}); var udiv = new Ajax.Updater('id_PluginBoard', 'src/ajax/cPg_pg_manage_show.php',{method: 'post',parameters: 'url='});Effect.Appear('id_PluginBoard', {duration: 1.0});">Gestione personaggi</a></li>
+                                <li><a href="javascript: void(0);" OnClick="javascript: $('id_master_menu').fade({duration: 0.5});">Exit</a></li>
+                        </ul>
+                        <?php
+                }
+                ?>
+                <a id="id_msg_link" onClick="javascript: $('Privatemessage').style.left=200;$('Privatemessage').toggle();" href="javascript: void(0);">.: Messaggi :.</a>
+                <a onClick="javascript: $('id_list_pg').style.left=Event.pointerX(event);$('id_list_pg').style.top=Event.pointerY(event);$('id_list_pg').toggle();" href="javascript: void(0);">.: Personaggi :.</a>
+                <a style="text-align:center;" href="index.php?IdP=108"> .: FORUM :.</a>					
+                <a class="LinkBanner" href="<?php echo $_SERVER["DOMAIN"]; ?>src/logout.php">.: Logout :.</a>
+                <?php
+        }
+        ?>
+        </div>
+    </div>

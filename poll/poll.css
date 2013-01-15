@@ -1,0 +1,75 @@
+/* Example class for Mini Poll */
+
+body {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10px;
+}
+.menuhd {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: white;
+	background-color: #835084;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 3px;
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-top-color: #3b1251;
+	border-left-color: #3b1251;
+	font-weight: bold;
+}
+.poll {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	background-color: #b19bcf;
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-top-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+	padding-right: 2px;
+}
+a:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #ece9d8;
+	text-decoration: none;
+}
+a:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #ece9d8;
+	text-decoration: none;
+}
+a:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #ece9d8;
+	text-decoration: underline;
+}
+.fat {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+}
+.tabele {
+	background-color: #000000;
+}
+.formlook {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	border: 1px solid #000000;
+}
+.pollbg {
+	background-color: #b19bcf;
+	padding-left: 5px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}

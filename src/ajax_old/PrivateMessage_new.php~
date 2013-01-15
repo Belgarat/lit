@@ -1,0 +1,26 @@
+<?php
+session_start();
+require_once("../../cfg/config.php");
+
+$url_section = explode(".",$_SERVER["SERVER_NAME"]);
+require_once("../../cfg/" . $url_section[0] . "/global.php");
+require_once(SRV_ROOT . "/" . $url_section[0] . "_inclusions.php");
+
+$oDb = Db::getInstance();
+$oDb->Open();
+$oUt = new cUtente();
+
+$oUt->id = $_SESSION["ID"];
+$oUt->Leggi();
+
+$oPriMsg = new cPrivatemessage();
+$oPriMsg->set_id_sito($_SERVER["SITO"]);
+$oPriMsg->set_user($oPriMsg->let_id_sito(),$oUt);
+
+$newmsg=$oPriMsg->test_new_msg();
+if($newmsg!=0){
+	echo "<span style='color:red;font-weight:bold;'>.: Messaggi(".$newmsg.") :.</span>";
+}else{
+	echo ".: Messaggi :.";
+}
+?>

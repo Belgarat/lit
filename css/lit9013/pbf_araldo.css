@@ -1,0 +1,157 @@
+BODY
+{
+    SCROLLBAR-FACE-COLOR: #501d6b;
+    SCROLLBAR-3DLIGHT-COLOR: #000000;
+    SCROLLBAR-ARROW-COLOR: #835084;
+    SCROLLBAR-TRACK-COLOR: #180920;
+    SCROLLBAR-DARKSHADOW-COLOR: #000000
+}
+A
+{
+	color: #b19bcf;
+	font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+	text-decoration: none;
+}
+A:visited
+{
+	color: #b19bcf;
+	font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+	text-decoration: none;
+}
+A:active
+{
+	color: #b19bcf;
+    font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    text-decoration: none;
+}
+A:hover
+{
+	left: 5px;
+	color: #ffffff;
+	background-color: transparent;
+	text-decoration: underline;
+}
+#tblForum
+{
+    /**BORDER-RIGHT: #993399 1px solid;**/
+    PADDING-RIGHT: 3px;
+    /**BORDER-TOP: #993399 1px solid;**/
+    PADDING-LEFT: 3px;
+    FONT-SIZE: 11px;
+    PADDING-BOTTOM: 3px;
+    /**BORDER-LEFT: #993399 1px solid;**/
+    PADDING-TOP: 3px;
+    /**BORDER-BOTTOM: #993399 1px solid;**/
+    FONT-STYLE: italic;
+    FONT-FAMILY: Georgia, Times New Roman, Times, serif;
+    TEXT-ALIGN: justify;
+    font-color: '#ece9d8'
+}
+
+
+.cImmOver:hover
+{
+	border-right: #835084 2px solid;
+	border-top: #835084 2px solid;
+	border-left: #835084 2px solid;
+	border-bottom: #835084 2px solid;
+}
+.cImmOver
+{
+	border-right: #19051C 2px solid;
+	border-top: #19051C 2px solid;
+	border-left: #19051C 2px solid;
+	border-bottom: #19051C 2px solid;
+}
+
+a.cLinkMenu
+{
+	color: #b19bcf;
+	font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+	text-decoration: none;
+	font-size: 12px;
+}
+A.cLinkMenu:active
+{
+	color: #b19bcf;
+	font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+	text-decoration: none;
+	font-size: 12px;
+}
+A.cLinkMenu:visited
+{
+	color: #b19bcf;
+	font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+	text-decoration: none;
+	font-size: 12px;
+}
+A.cLinkMenu:hover
+{
+	left: 5px;
+	color: #ffffff;
+	background-color: transparent;
+	text-decoration: underline;
+	font-size: 12px;
+}
+/*
+FORMATI TITOLI E TESTO PRESENTI NELL'ARALDO
+*/
+
+.cTitolo
+{
+	font-weight: bold;
+	font-size: large;
+	color: #835084;
+	font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+	text-align: center;
+	font-variant: small-caps;
+}
+.cSottoTitolo
+{
+	font-weight: bold;
+	font-size: 14px;
+	color: #990099;
+	font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+	text-align: center;
+	font-variant: small-caps;
+}
+
+.cTestoNorm
+{
+	font-size: 12px;
+	color: white;
+	font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+	text-align: justify;
+}
+.cRosso
+{
+	font-weight: bold;
+	font-size: 12px;
+	color: #ff0000;
+	font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+	text-align: justify;
+}
+.cVerde
+{
+	font-weight: bold;
+	font-size: 12px;
+	color: #009900;
+	font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+	text-align: justify;
+}
+.cDivAccesso
+{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+BLOCKQUOTE
+{
+	border-right: #835084 1px double;
+	padding-right: 2px;
+	border-top: #835084 1px double;
+	padding-left: 2px;
+	padding-bottom: 2px;
+	border-left: #835084 1px double;
+	padding-top: 2px;
+	border-bottom: #835084 1px double;
+}

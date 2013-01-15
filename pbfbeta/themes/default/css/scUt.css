@@ -1,0 +1,209 @@
+BODY
+{
+    BACKGROUND-ATTACHMENT: fixed;
+    BACKGROUND-IMAGE: url(../img/scheda3.jpg);
+    BACKGROUND-REPEAT: no-repeat;
+    BACKGROUND-COLOR: transparent
+}
+DIV#IdMenu
+{
+    LEFT: 515px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 5px
+}
+DIV#IdNome
+{
+    FONT-SIZE: 12px;
+    LEFT: 30px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 50px
+}
+DIV#IdAnzianita
+{
+    FONT-SIZE: 12px;
+    LEFT: 211px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 50px
+}
+DIV#IdInattivo
+{
+    FONT-SIZE: 12px;
+    LEFT: 385px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 30px
+}
+DIV#IdCollaborazione
+{
+    FONT-SIZE: 12px;
+    LEFT: 30px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 136px
+}
+DIV#IdRuoloGioco
+{
+    FONT-SIZE: 12px;
+    LEFT: 211px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 136px
+}
+DIV#IdImm
+{
+    LEFT: 424px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    WIDTH: 200px;
+    POSITION: absolute;
+    TOP: 100px;
+    HEIGHT: 250px;
+    TEXT-ALIGN: center
+}
+DIV#IdPg
+{
+    FONT-SIZE: 12px;
+    LEFT: 30px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 215px
+}
+DIV#IdSoprannome
+{
+    FONT-SIZE: 12px;
+    LEFT: 185px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 295px
+}
+DIV#IdAvvCorso
+{
+    FONT-SIZE: 12px;
+    LEFT: 105px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 295px
+}
+DIV#IdAvvConcluse
+{
+    FONT-SIZE: 12px;
+    LEFT: 105px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 313px
+}
+DIV#IdMail
+{
+    FONT-SIZE: 12px;
+    LEFT: 90px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 386px
+}
+DIV#IdICQ
+{
+    FONT-SIZE: 12px;
+    LEFT: 90px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 430px
+}
+DIV#IdMSN
+{
+    FONT-SIZE: 12px;
+    LEFT: 90px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 470px
+}
+DIV#IdICQ
+{
+    FONT-SIZE: 12px;
+    LEFT: 90px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 430px
+}
+DIV#IdSky
+{
+    FONT-SIZE: 12px;
+    LEFT: 90px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 408px
+}
+DIV#IdYahoo
+{
+    FONT-SIZE: 12px;
+    LEFT: 90px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 448px
+}
+DIV#IdMotto
+{
+    FONT-SIZE: 12px;
+    LEFT: 240px;
+    FLOAT: none;
+    OVERFLOW: auto;
+    WIDTH: 180px;
+    POSITION: absolute;
+    TOP: 452px;
+    HEIGHT: 100px;
+    TEXT-ALIGN: center
+}
+DIV#IdFirma
+{
+    FONT-SIZE: 12px;
+    LEFT: 438px;
+    FLOAT: none;
+    OVERFLOW: auto;
+    WIDTH: 180px;
+    POSITION: absolute;
+    TOP: 455px;
+    HEIGHT: 100px;
+    TEXT-ALIGN: center
+}
+DIV#IdOnLine
+{
+    FONT-SIZE: 12px;
+    LEFT: 90px;
+    FLOAT: none;
+    OVERFLOW: hidden;
+    POSITION: absolute;
+    TOP: 511px
+}
+INPUT#idSalva
+{
+    BORDER-RIGHT: darkmagenta thin solid;
+    BORDER-TOP: darkmagenta thin solid;
+    FONT-WEIGHT: bolder;
+    BORDER-LEFT: darkmagenta thin solid;
+    COLOR: #9966cc;
+    BORDER-BOTTOM: darkmagenta thin solid;
+    FONT-FAMILY: 'Book Antiqua', Tahoma, Verdana, 'Times New Roman';
+    BACKGROUND-COLOR: transparent
+}
+A#IdLinkMod
+{
+    FONT-SIZE: 12px
+}

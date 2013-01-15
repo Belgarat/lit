@@ -1,0 +1,245 @@
+#Privatemessage{
+	position: absolute;
+	background-image: url("/img/pbf/pri_msg_bg.jpg");
+	top:20px;
+	left:20px;
+	background-color:#3b1251; 
+	border-style:solid; 
+	border-color: #b19bcf; 
+	border-width:1px; 
+	width:600px;
+	height:400px; 
+	padding-left:1.5em;
+	padding-right:1.5em;
+	padding-bottom:1.5em;
+	z-index:999;
+}
+.msg_folder{
+	position: absolute;
+	list-style-image: url('/img/pbf/ico/pri_msg_folder22x22.png');
+	list-style:square inerith url('/img/pbf/ico/pri_msg_folder22x22.png');
+	margin: 0px;
+	padding: 0px;
+	top: 10px;
+	left: 50px;
+}
+.msg_folder .msg_folder_title{
+	list-style-type: none;
+	list-style-image: none;
+	margin-left: -30px;
+	margin-bottom: 20px;
+	top: 16px;
+	left: 20px;
+	color: DarkRed;
+	font-size: 1em;
+	font-weight: bold;
+}
+.msg_folder a {
+	color: sienna;
+	font-weight: bold;
+}
+.msg_folder a:hover 
+	color: black;
+	font-weight: bold;
+}
+.msg_folder li {
+	line-height: 24px;
+}
+
+.msg_list_title{
+	display: block;
+	position: absolute;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	top: -20px;
+	left: 0px;
+	width: 20px;
+	text-align: left;
+	font-size: 1em;
+	filter:alpha(opacity=”60″);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+	background-color: black;
+}
+.msg_list{
+	display: block;
+	position: absolute;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	top: 120px;
+	left: 133px;
+	width: 180px;
+	text-align: left;
+	font-size: 0.8em;
+	filter: alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+	background-color: black;
+}
+.msg_list .title{
+	display: block;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	height: 20px;
+	width: 180px;
+	text-align: right;
+	font-size: 1.2em;
+	font-weight: bold;
+	background-color: black;
+	color: DarkRed;
+
+}
+.msg_list a {
+	color: white;
+	font-weight: bold;
+}
+.msg_list a:hover {
+	color: white;
+	font-weight: bold;
+}
+.msg_list li {
+	line-height: 16px;
+}
+
+.msg_show{
+	display: block;
+	position: absolute;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	top: 110px;
+	left: 370px;
+	width: 240px;
+	height: 270px;
+	overflow: auto;
+}
+.msg_show li {
+	color: black;
+	line-height: 12px;
+	font-size: 10px;
+	text-align: justify;
+}
+#id_msg_show{
+	overflow: auto;
+}
+#msg_show_bar {
+	position: absolute;	
+	top:100px;
+	left:363px;
+	filter:alpha (opacity=80);
+	-moz-opacity:.85;
+	opacity:.85;
+	-khtml-opacity: 0.85;
+	z-index: 10;	
+}
+#msg_show_bar ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	font-size: 0.8em;
+}
+#msg_show_bar li{
+	display: inline;
+	list-style-type:none;
+	margin:0px;
+	padding:0;
+	background-color: #290b35;
+	border-color: #b19bcf;
+	border-style: solid;
+	border-width: 1px;
+	padding:0px 2px 0px 2px;
+}
+
+#msg_obj {
+	font-weight: bold;
+	line-height: 24px;
+}
+#id_action_bar {
+	position: absolute;
+	list-style-type: none;
+	top: 5px;
+	left: 65%;
+	padding:0px;
+	margin:0px;
+	z-index:1000;
+}
+#id_action_bar li {
+	display:inline;
+	background-color: #290b35;
+	border-color: #b19bcf;
+	border-style: solid;
+	border-width: 1px;
+	padding:2px 4px 2px 4px;
+	filter:alpha (opacity=80);
+	-moz-opacity:.85;
+	opacity:.85;
+	-khtml-opacity: 0.85;
+
+	-moz-border-radius-bottomleft: 10px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-left-radius: 10px;
+	-webkit-border-bottom-right-radius: 5px;
+}
+
+#id_msg_write{
+	position:absolute;
+	top: 30px;
+	left: 50px;
+	width: 400px;
+	min-height: 300px;
+	z-index: 1000;
+	filter:alpha (opacity=80);
+	-moz-opacity:.85;
+	opacity:.85;
+	-khtml-opacity: 0.85;
+	background-color: #19051c;
+	border-color: #3b1251;
+	border-width: 3px;
+	border-style: ridge;
+	color: white;
+	text-align:center;
+
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-topright: 15px;	
+	-moz-border-radius-bottomleft: 15px;
+	-moz-border-radius-bottomright: 15px;
+	-webkit-border-top-left-radius: 15px;
+	-webkit-border-top-right-radius: 15px;	
+	-webkit-border-bottom-left-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+	
+	padding:10px;
+}
+
+#id_msg_write textarea{
+	display:inline;
+	width: 98%;
+}
+#id_msg_write input{
+	display:inline;
+	width: 98%;
+}
+
+#id_msg_new_obj{
+}
+#id_msg_new_obj{
+}
+#id_msg_new_obj{
+}
+
+#id_msg_new_box{
+	background-color:red;
+	position:absolute;
+	top: 60%;
+	left:100px;
+	z-index:1010;
+	width:200px;
+	min-height:100px;
+	background-color: #19051c;
+	border-color: #3b1251;
+	border-width: 3px;
+	border-style: ridge;	
+}

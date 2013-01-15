@@ -1,0 +1,100 @@
+#main_noticeboard{
+    height: 800px;
+    background-image: url('../img/prova_box4.png');
+    background-repeat: no-repeat;
+    background-position: 45% 36%;
+}
+.noticeboard{
+    width: 330px;
+}
+#Notice1{
+    border: 0px solid #3b1251;
+    width: 330px;
+    height: 250px;
+    overflow: hidden;
+    background-image: url('../img/dmono.jpg');
+    background-repeat: no-repeat;
+    background-position: 98% 95%;
+    float:left;
+}
+#Notice2{
+    margin-left: 536px;
+    border: 0px solid #3b1251;
+    width: 330px;
+    height: 250px;
+    overflow: hidden;
+    background-image: url('../img/dmono.jpg');
+    background-repeat: no-repeat;
+    background-position: 98% 95%;
+}
+#Notice3{
+    border: 0px solid #3b1251;
+    width: 330px;
+    height: 250px;
+    overflow: hidden;
+    background-image: url('../img/dmono.jpg');
+    background-repeat: no-repeat;
+    background-position: 98% 95%;
+    float:left;
+}
+#Notice4{
+    margin-left: 536px;
+    border: 0px solid #3b1251;
+    width: 330px;
+    height: 250px;
+    overflow: hidden;
+    background-image: url('../img/dmono.jpg');
+    background-repeat: no-repeat;
+    background-position: 98% 95%;
+}
+#Notice5{
+    padding: 5px;
+    margin:5px auto;
+    text-align: center;
+    border-color: #050D15;
+    border-style: groove;
+    border-width: 3px 3px 3px 3px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+#Notice6{
+    border: 3px groove #050D15;
+    width: 690px;
+    height: 50px;
+    overflow: hidden;
+    margin:auto;
+}
+.notice{
+    list-style: none;
+    padding:0px;
+    margin:0px;
+}
+.notice_title{
+    border: 3px 3px 3px 3px;
+    border-style: groove;
+    border-color: #050D15;
+    margin-right: 3px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-align: left;
+    background-color: #050D15;
+    padding: 2px 2px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+.notice_title_top{
+    margin-right: 3px;
+    margin-top: 6px;
+    margin-bottom: 2px;
+    text-align: center;
+    text-decoration: underline;
+    width: 100%;
+}
+.content_board{
+    margin:0px;
+    padding:0px;
+    padding-top: 10px;
+    padding-left: 10px;
+}

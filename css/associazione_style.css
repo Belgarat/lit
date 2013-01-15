@@ -1,0 +1,195 @@
+.BarraMenu{
+	display:block;
+	height:16px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#9184a3;
+	padding-left:1px;
+	background-color:#9184a3;
+	margin:2px;
+	color:#3b1251;
+}
+
+TABLE.LinkBanner
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14px;
+    BACKGROUND-IMAGE: url(sfum_vert.png)
+}
+.cNotizia
+{
+    FONT-SIZE: x-small;
+    COLOR: red;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, 'Times New Roman'
+}
+.cImmOver:hover
+{
+    BORDER-RIGHT: #835084 2px solid;
+    BORDER-TOP: #835084 2px solid;
+    BORDER-LEFT: #835084 2px solid;
+    BORDER-BOTTOM: #835084 2px solid
+}
+.cImmOver
+{
+    BORDER-RIGHT: #19051c 2px solid;
+    BORDER-TOP: #19051c 2px solid;
+    BORDER-LEFT: #19051c 2px solid;
+    BORDER-BOTTOM: #19051c 2px solid
+}
+A.cLinkMenu
+{
+    FONT-SIZE: 12px;
+    COLOR: #3b1251;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A.cLinkMenu:active
+{
+    FONT-SIZE: 12px;
+    COLOR: #3b1251;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A.cLinkMenu:visited
+{
+    FONT-SIZE: 12px;
+    COLOR: #3b1251;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A.cLinkMenu:hover
+{
+    FONT-SIZE: 12px;
+    LEFT: 5px;
+    COLOR: #d4c7e4;
+    BACKGROUND-COLOR: transparent;
+    TEXT-DECORATION: underline
+}
+.cTestoNorm
+{
+    FONT-SIZE: 12px;
+    COLOR: white;
+    FONT-FAMILY: Book Antiqua , Tahoma, Verdana, 'Times New Roman'
+}
+SPAN.cTestoNorm1
+{
+    FONT-SIZE: 12px;
+    COLOR: white;
+    FONT-FAMILY: Book Antiqua , Tahoma, Verdana, 'Times New Roman';
+    TEXT-ALIGN: justify
+}
+UL.menu3
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    WIDTH: 185px;
+    PADDING-TOP: 0px;
+    LIST-STYLE-TYPE: none
+}
+UL.menu3 LI A
+{
+    PADDING-RIGHT: 1em;
+    DISPLAY: block;
+    PADDING-LEFT: 1em;
+    PADDING-BOTTOM: 0px;
+    LINE-HEIGHT: 2em;
+    PADDING-TOP: 0px;
+    HEIGHT: 2em;
+    TEXT-DECORATION: none
+}
+UL.menu3 LI
+{
+    DISPLAY: inline
+}
+UL.menu3 LI A:link
+{
+    COLOR: #3b1251
+}
+UL.menu3 LI A:visited
+{
+    COLOR: #3b1251
+}
+UL.menu3 LI A:hover
+{
+    BACKGROUND: url(sfumato.png) #eee repeat-y 100% 0px;
+    COLOR: #ffffff
+}
+UL.menu3 LI A:active
+{
+    BACKGROUND: url(sfumato.png) #eee repeat-y 100% 0px;
+    COLOR: #ffffff
+}
+UL.menu_or
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    WIDTH: 185px;
+    PADDING-TOP: 0px;
+    LIST-STYLE-TYPE: none
+}
+UL.menu_or LI A
+{
+    PADDING-RIGHT: 1em;
+    DISPLAY: block;
+    PADDING-LEFT: 1em;
+    PADDING-BOTTOM: 0px;
+    LINE-HEIGHT: 2em;
+    PADDING-TOP: 0px;
+    HEIGHT: 2em;
+    TEXT-DECORATION: none
+}
+UL.menu_or LI
+{
+    DISPLAY: inline
+}
+UL.menu_or LI A:link
+{
+    COLOR: #3b1251
+}
+UL.menu3 LI A:visited
+{
+    COLOR: #3b1251
+}
+UL.menu_or LI A:hover
+{
+    BACKGROUND: url(sfumato1.png) #eee repeat-y 100% 0px;
+    COLOR: #ffffff
+}
+UL.menu3 LI A:active
+{
+    BACKGROUND: url(sfumato1.png) #eee repeat-y 100% 0px;
+    COLOR: #ffffff
+}
+A.cLinkSottoMenu
+{
+    FONT-SIZE: 12px;
+    COLOR: #b95033;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A.cLinkSottoMenu:active
+{
+    FONT-SIZE: 12px;
+    COLOR: #b95033;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A.cLinkSottoMenu:visited
+{
+    FONT-SIZE: 12px;
+    COLOR: #b95033;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    TEXT-DECORATION: none
+}
+A.cLinkSottoMenu:hover
+{
+    FONT-SIZE: 12px;
+    LEFT: 5px;
+    COLOR: #ffffff;
+    BACKGROUND-COLOR: transparent;
+    TEXT-DECORATION: underline
+}

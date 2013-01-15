@@ -1,0 +1,407 @@
+#vertnav{list-style: none;}
+.vertical{
+	padding:0px;
+}
+#vertnav ul { 
+	padding:0px;
+	margin:0px;
+	list-style: none;
+    z-index:99;
+    overflow:visible;
+    position:absolute;
+    WIDTH: 185px;
+}
+
+#vertnav li {
+	position:relative;
+	width:185px;
+
+}
+
+#vertnav ul li{ background-color:rgb(25,5,28);}
+
+#vertnav li{ border-width:0px 0px 0px 0px;}
+
+#vertnav li:last-child{border-bottom:0px solid #3b1251;}
+
+#div_vert{
+	background-color:rgb(25,5,28);
+	border:1px solid #3b1251;
+}
+
+#vertnav a {
+	color:#B19BCF;
+	font-size:1em;
+	line-height:2em;
+	padding:1px;
+}
+#vertnav a:active {
+    FONT-SIZE: 1em;
+    COLOR: #b19bcf;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    text-decoration:none; 
+    display:block;
+    padding: 0.0em;  
+    margin:0.2em 0 0.2em 0.1em; /*helps Opera with hover */
+    width:185px; /*helps IE with hover */
+    height:2.2em;
+}
+#vertnav a:visited {
+    FONT-SIZE: 1em;
+    COLOR: #b19bcf;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    text-decoration:none; 
+    display:block;
+    padding: 0.0em;  
+    margin:0.2em 0 0.2em 0.1em; /*helps Opera with hover */
+    width:185px; /*helps IE with hover */
+    height:2.2em;
+}
+#vertnav a:hover {
+    FONT-SIZE: 1em;
+    LEFT: 5px;
+    COLOR: #ffffff;
+    BACKGROUND-COLOR: transparent;
+    TEXT-DECORATION: underline
+    display:block;
+    padding: 0.0em;  
+    margin:0.2em 0 0.2em 0.1em; /*helps Opera with hover */
+    width:185px; /*helps IE with hover */
+    height:2.2em;
+}
+#vertnav li:hover, #vertnav a:hover{
+    //background-color:#DFDFDF; 
+    BACKGROUND: url("../img/pbf/sfumato.png") #eee repeat-y 100% 0px;
+    COLOR: #ffffff;
+}
+
+#vertnav ul, #vertnav ul ul, #vertnav ul ul ul{
+    display:none; 
+    position:absolute; 
+    top:0; 
+    left:185px;
+}
+
+#vertnav li:hover ul ul, #vertnav li:hover ul ul ul{
+    display:none; 
+  
+}
+
+#vertnav li:hover ul, #vertnav ul li:hover ul, #vertnav ul ul li:hover ul{
+    display:block;
+}
+
+li>ul { 
+	top: auto;
+	left: auto;
+}
+
+/* Win IE only \*/
+* html #vertnav li{float:left;} 
+/* end holly hack */
+
+
+#vertnav1{margin:0px;list-style: none;}
+.vertical{
+	padding:0px;
+	margin:0px;
+	z-index:150;
+}
+#vertnav1 ul { 
+	padding:0px;
+	margin:0px;
+	list-style: none;
+    z-index:99;
+    overflow:visible;
+    position:absolute;
+    WIDTH: 185px;
+}
+
+#vertnav1 li {
+	position:relative;
+	width:185px;
+}
+#vertnav1 ul li{ background-color:rgb(25,5,28);}
+
+#vertnav1 li{ border-width:1px 1px 1px 1px;}
+#vertnav1 li:last-child{border-bottom:1px solid #3b1251;}
+
+#div_vert{
+	background-color:rgb(25,5,28);
+	border-top:1px solid #3b1251;
+	border-bottom:1px solid #3b1251;
+	border-left:1px solid #3b1251;
+	border-right:1px solid #3b1251;
+}
+
+#vertnav1 a {
+	color:#B19BCF;
+	font-size:1em;
+	line-height:2em;
+	padding:1px;
+}
+#vertnav1 a:active {
+    FONT-SIZE: 1em;
+    COLOR: #b19bcf;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    text-decoration:none; 
+    display:block;
+    padding: 0.0em;  
+    margin:0.2em 0 0.2em 0.1em; /*helps Opera with hover */
+    width:180px; /*helps IE with hover */
+    height:2.2em;
+}
+#vertnav1 a:visited {
+    FONT-SIZE: 1em;
+    COLOR: #b19bcf;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    text-decoration:none; 
+    display:block;
+    padding: 0.0em;  
+    margin:0.2em 0 0.2em 0.1em; /*helps Opera with hover */
+    width:180px; /*helps IE with hover */
+    height:2.2em;
+}
+#vertnav1 a:hover {
+    FONT-SIZE: 1em;
+    LEFT: 5px;
+    COLOR: #ffffff;
+    BACKGROUND-COLOR: transparent;
+    TEXT-DECORATION: underline
+    display:block;
+    padding: 0.0em;  
+    margin:0.2em 0 0.2em 0.1em; /*helps Opera with hover */
+    width:180px; /*helps IE with hover */
+    height:2.2em;
+}
+#vertnav1 li:hover, #vertnav1 a:hover{
+    //background-color:#DFDFDF; 
+    BACKGROUND: url("../img/pbf/sfumato.png") #eee repeat-y 100% 0px;
+    COLOR: #ffffff;
+    
+}
+
+#vertnav1 ul, #vertnav1 ul ul, #vertnav1 ul ul ul{
+    display:none; 
+    margin:0px;
+    position:absolute; 
+    top:0; 
+    left:185px;
+}
+
+#vertnav1 li:hover ul ul, #vertnav1 li:hover ul ul ul{
+    display:none; 
+    margin:0px;
+  
+}
+
+#vertnav1 li:hover ul, #vertnav1 ul li:hover ul, #vertnav1 ul ul li:hover ul{
+    display:block;
+    margin:0px;
+}
+
+li>ul { 
+	top: auto;
+	left: auto;
+	margin:0px;
+}
+
+/* Win IE only \*/
+* html #vertnav1 li{float:left;} 
+/* end holly hack */
+
+#vertnav2{margin:0px;list-style: none;}
+.vertical{
+	padding:0px;
+	margin:0px;
+	z-index:150;
+}
+#vertnav2 ul { 
+	padding:0px;
+	margin:0px;
+	list-style: none;
+    z-index:99;
+    overflow:visible;
+    position:absolute;
+    WIDTH: 185px;
+}
+
+#vertnav2 li {
+	position: relative;
+	width: 185px;
+    display:block;
+    height:2.2em;
+    margin:0px;
+	padding:0px;
+    LINE-HEIGHT: 2em;    
+}
+#vertnav2 ul li{ background-color:rgb(25,5,28);}
+
+#vertnav2 li{ border-width:1px 1px 1px 1px;}
+#vertnav2 li:last-child{border-bottom:1px solid #3b1251;}
+
+#div_vert{
+	background-color:rgb(25,5,28);
+	border-top:1px solid #3b1251;
+	border-bottom:1px solid #3b1251;
+	border-left:1px solid #3b1251;
+	border-right:1px solid #3b1251;
+}
+
+#vertnav2 a {
+    FONT-SIZE: 1em;
+    COLOR: #b19bcf;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    text-decoration:none; 
+    display:block;
+    padding: 0.0em;  
+    margin:0.2em 0 0.2em 0.1em; /*helps Opera with hover */
+    width:180px; /*helps IE with hover */
+    height:2.2em;
+    LINE-HEIGHT: 2em;
+}
+#vertnav2 a:active {
+    FONT-SIZE: 1em;
+    COLOR: #b19bcf;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    text-decoration:none; 
+    display:block;
+    padding: 0.0em;  
+    margin:0.2em 0 0.2em 0.1em; /*helps Opera with hover */
+    width:180px; /*helps IE with hover */
+    height:2.2em;
+}
+#vertnav2 a:visited {
+    FONT-SIZE: 1em;
+    COLOR: #b19bcf;
+    FONT-FAMILY: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+    text-decoration:none; 
+    display:block;
+    padding: 0.0em;  
+    margin:0.2em 0 0.2em 0.1em; /*helps Opera with hover */
+    width:180px; /*helps IE with hover */
+    height:2.2em;
+}
+#vertnav2 a:hover {
+    FONT-SIZE: 1em;
+    LEFT: 5px;
+    COLOR: #ffffff;
+    BACKGROUND-COLOR: transparent;
+    TEXT-DECORATION: underline
+    display:block;
+    padding: 0.0em;  
+    margin:0.2em 0 0.2em 0.1em; /*helps Opera with hover */
+    width:180px; /*helps IE with hover */
+    height:2.2em;
+}
+#vertnav2 li:hover, #vertnav2 a:hover{
+    //background-color:#DFDFDF; 
+    BACKGROUND: url("../img/pbf/sfumato.png") #eee repeat-y 100% 0px;
+    COLOR: #ffffff;
+    
+}
+
+#vertnav2 ul, #vertnav2 ul ul, #vertnav2 ul ul ul{
+    display:none; 
+    margin:0px;
+    position:absolute; 
+    top:0; 
+    left:185px;
+}
+
+#vertnav2 li:hover ul ul, #vertnav2 li:hover ul ul ul{
+    display:none; 
+    margin:0px;
+  
+}
+
+#vertnav2 li:hover ul, #vertnav2 ul li:hover ul, #vertnav2 ul ul li:hover ul{
+    display:block;
+    margin:0px;
+}
+
+li>ul { 
+	top: auto;
+	left: auto;
+	margin:0px;
+}
+
+/* Win IE only \*/
+* html #vertnav2 li{float:left;} 
+/* end holly hack */
+
+
+table.mnu{
+    position: absolute;
+    display: block;
+    z-index: 1000;
+    list-style-type: none;
+    list-style-image: none;
+    text-align: left;
+    margin:0px;
+    padding-left: 0;
+    margin-left: 10px;
+    background-color: #050D15;
+    background: rgba(5,13,21,0.9);
+    border-color: #050D15;
+    border-style: groove;
+    border-width: 0px 3px 3px 3px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+table.mnu tr{
+    vertical-align: top;
+    min-height: 200px;
+}
+table.mnu td{
+    padding: 0px;
+    min-width: 150px;
+}
+table.mnu a{
+    font-size: 12px;
+    position:relative;
+    display:block;
+}
+li.mnu_opt{
+
+}
+ul.submnu{
+    padding: 0px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+    list-style-image: none;
+    list-style-type: none;
+}
+ul.submnu li{
+    padding: 0px;
+    padding: 4px 2px;
+    list-style-image: none;
+    list-style-type: none;
+    /*height: 30px;*/
+    margin: 2px 1px;
+    /*background-image: url('/img/pbf/sfum_vert_dark.png');
+    background-repeat: repeat-x;*/
+}
+ul.submnu li:hover{
+    border-color: #627A90;
+    border-style: groove;
+    border-width: 0px 0px 0px 3px;
+}
+ul.submnu li:nth-child(even){}
+ul.submnu li:nth-child(odd){}
+p.mnugroup{
+    padding: 2px;
+    text-align: center;
+    border-color: #3b1251;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+}
+p.submnu_opt{
+    padding: 2px;
+    text-align: right;
+    border-color: #3b1251;
+    border-style: solid;
+    border-width: 0px 0px 1px 1px;
+}

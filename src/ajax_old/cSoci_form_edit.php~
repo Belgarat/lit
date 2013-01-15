@@ -1,0 +1,32 @@
+<?php
+session_start();
+require_once("../../cfg/config.php");
+
+$url_section = explode(".",$_SERVER["SERVER_NAME"]);
+require_once("../../cfg/" . $url_section[0] . "/global.php");
+require_once(SRV_ROOT . "/" . $url_section[0] . "_inclusions.php");
+
+$oDb = Db::getInstance();
+$oDb->Open();
+$oUt = new cUtente();
+
+$oUt->id = $_SESSION["ID"];
+$oUt->Leggi();
+
+if($control['cSoci']['Modify']==1){
+	
+	$oSoci = new cSoci();
+	$oSoci->set_id_sito($_SERVER["SITO"]);
+	$oSoci->set_user($oPriMsg->let_id_sito(),$oUt);
+	$oSoci->set_id_socio($_GET["idsocio"]);
+
+	$control=$oSoci->let_permission($oSoci->let_id_socio());
+
+	$oSoci->show();
+
+}else{
+    
+	echo "Impossibile procedere. <SPAN style='color: red;'><br \>Autorizzazioni insufficienti.</SPAN><br \><br \>\r\n";
+
+}
+?>

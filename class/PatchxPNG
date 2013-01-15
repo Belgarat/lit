@@ -1,0 +1,10 @@
+ALTER TABLE `pgdb` ADD `IdAutore` INT( 6 ) NOT NULL AFTER `IDUt`;
+ALTER TABLE `pgdb` CHANGE `Equipaggiamento` `Png_dove` INT( 6 ) UNSIGNED NOT NULL;
+ALTER TABLE `pgdb` CHANGE `Abilita` `Png_immagine` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `pgdb` CHANGE `Incantesimi` `Png_fama` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+INSERT INTO `pgdb` (`Png_fama`, `Png_immagine`, `Png_dove`, `Username`, `IdAutore`, `bg`, `Descrizione`)
+	SELECT `tblpng`.`Fama`, `tblpng`.`Immagine`, `tblpng`.`Dove`, `tblpng`.`Nome`, `tblpng`.`Ideatore`, `tblpng`.`Storia`, `tblpng`.`Descfisica`
+	FROM `tblpng`;
+
+UPDATE 

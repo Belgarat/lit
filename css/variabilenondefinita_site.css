@@ -1,0 +1,210 @@
+BODY
+{
+	font-size: 12px;
+	margin: 0px;
+	color: black;
+	font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+	height: 100%;
+	background-color: #ffffff;
+	text-align: center;
+}
+table
+{
+	font-size: 12px;
+	color: black;
+	font-family: 'Book Antiqua' , Tahoma, Verdana, 'Times New Roman';
+}
+li.sotto
+{
+	font-style: italic;
+}
+#DivUpload{
+	color: white;
+}
+.option_bar{
+	padding:0px;
+	margin:0px;
+    height:24px;
+}
+
+.option_bar ul{
+	position:relative;
+	width:95%;
+}
+
+.option_bar li{
+	text-align:right;
+	list-style: none;
+	margin-right: 3px;
+	margin-top: 6px;
+}
+
+.option_bar img {
+	border-width:0px;
+	height: 22px;
+}
+
+#contenitore
+{
+	position:relative;
+	height: 100%;
+	width:770px;
+	margin:auto;
+	border-style: solid;
+	border-color: black;
+	border-width: 0px;	
+}
+#head
+{
+	position:relative;
+	background: url("../img/variabilenondefinita/variabilenondefinita_top.png") no-repeat center top;	
+	width: 475px;
+	height: 150px;
+}
+
+#top
+{
+	position:relative;
+	background-image: url("../img/variabilenondefinita/sfum_vert.png");
+	width: 475px;
+	height: 22px;
+	background-color: transparent;
+	text-align:right;
+}
+#main_no_news
+{
+	position: relative;
+	text-align:justify;
+	margin: 5px 0px 0px 0px;
+	padding: 0px 5px 0px 5px;
+	width: 465px;
+	border-style: solid;
+	border-color: black;
+	border-width: 0px;
+}
+
+#id_right{
+	position: absolute;
+	top:0px;
+	left:478px;
+	min-height: 550px;
+	width: 295px;
+	border-style: solid;
+	border-color: black;
+	border-width: 0px;
+	}
+
+.LinkBanner a
+{
+	display: block;
+	color: #3b1251;
+	text-decoration: none;
+}
+
+.LinkBanner a:hover, 
+.LinkBanner a:focus, 
+.LinkBanner a:active
+{
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+ul.LinkBanner
+{
+	padding-right: 45px;
+	padding-left: 45px;
+	padding-bottom: 0px;
+	margin: 0px;
+	padding-top: 0px;
+	list-style-type: none;
+}
+li.LinkBanner
+{
+	display: inline;
+	font-weight: bold;
+	font-size: 11px;
+	float: left;
+	width: 100px;
+	height: 22px;
+}
+
+.LinkInMain a
+{
+	display: block;
+	color: #3b1251;
+	text-decoration: none;
+}
+
+.LinkInMain a:hover, 
+.LinkInMain a:focus, 
+.LinkInMain a:active
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+ul.LinkInMain
+{
+	padding-right: 0px;
+	display: block;
+	padding-left: 5px;
+	padding-bottom: 0px;
+	margin: 0px;
+	padding-top: 0px;
+	list-style-type: none;
+	text-align: left;
+}
+li.LinkInMain
+{
+	padding-right: 0px;
+	display: block;
+	padding-left: 0px;
+	font-size: 12px;
+	padding-bottom: 0px;
+	margin: 0px;
+	padding-top: 0px;
+	list-style-type: none;
+	height: 22px;
+}
+DIV.div_help
+{
+	display:block;
+	position:absolute;
+	padding:3px;
+	border-width:2px;
+	border-style:outset;
+	font-size:12px;
+	color:black;
+	width:200px;
+	z-index:100;
+	background:#efd62c;	
+}
+
+DIV.div_popup
+{
+	display:block;
+	position:absolute;
+	padding:3px;
+	border-width:2px;
+	border-style:outset;
+	font-size:12px;
+	color:black;
+	/*width:200px;*/
+	z-index:100;
+	background:#efd62c;	
+	filter:alpha (opacity=70);
+	-moz-opacity:.85;
+	opacity:.85;
+	-khtml-opacity: 0.85;
+}
+
+/**
+ * This identifies area to use for the  modules plugin output stream.
+ * **/
+#id_PluginBoard{
+    position: absolute;
+    display:block;
+    background-color:transparent;
+    top:-50px;
+    z-index:999;
+}

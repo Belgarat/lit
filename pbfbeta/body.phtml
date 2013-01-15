@@ -1,0 +1,59 @@
+<div id="main_no_news">
+    <?php
+    $aPermission = $oUt->fArrayPermission($_SERVER["SITO"],"cContent",$oCont->read_id_content($IdP));				
+    switch($_GET["action"]){
+        case "edit":
+                //edita il contenuto passato
+                if($aPermission["Modify"]==1){
+                        $oCont->modify_cont($_GET["IdP"]);
+                }
+                break;
+        case "delete":
+                //elimina il contenuto
+                if($aPermission["Delete"]==1){
+                        $oCont->delete_cont($_GET["IdP"]);
+                }
+                break;
+        case "save":
+                //edita il contenuto passato
+                if($_GET["IdP"]==""){
+                        if($aPermission["Create"]==1){
+                                $IdPgNew=$oCont->save_cont("",$_SESSION["ID"]);
+                                echo "Inserimento avvenuto correttamente.<br>";
+                                echo "Cliccare <a href='./index.php?IdP=" . $IdPgNew . "'>QUI</a> per completare l'operazione.'";
+                        }else{
+                                echo "Non disponi dei permessi necessari.<br>";
+                                echo "Cliccare <a href='./index.php'>QUI</a> per completare l'operazione.'";
+                        }
+                }else{
+                        if($aPermission["Modify"]==1){
+                                $oCont->save_cont($IdP,$_SESSION["ID"]);
+                                echo "Contenuto aggiornato correttamente.<br>";
+                                echo "Cliccare <a href='./index.php?IdP=" . $_GET["IdP"] . "'>QUI</a> per completare l'operazione.'";
+                        }else{
+                                echo "Non disponi dei permessi necessari.<br>";
+                                echo "Cliccare <a href='./index.php'>QUI</a> per completare l'operazione.'";
+                        }
+                }
+                break;
+        default:						
+                ?>						
+                <div style="display:block;float:right;text-align:right;width:30%;border-width:0px 0px 0px 0px;border-color:white;border-style:solid;">
+                <?php
+                $oCont->DesignBar($aPermission,$IdP);						
+                ?>
+                </div>
+                <br>
+                <?php
+
+                $oMsg = new cMessage();
+                $oMsg->show();
+
+                //mostra il contenuto della pagina passando l'ID della stessa.
+                if($aPermission["Show"]==1){							
+                        $oCont->show($IdP);							
+                }
+
+        }
+    ?>
+</div>

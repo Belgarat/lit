@@ -1,0 +1,32 @@
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `IDUt` int(11) DEFAULT NULL,
+  `Username` varchar(255) DEFAULT NULL,
+  `Photo` varchar(255) DEFAULT NULL,
+  `Eta` int(11) DEFAULT NULL,
+  `Sesso` char(1) DEFAULT NULL,
+  `Descrizione` longtext,
+  `bg` longtext,
+  `PE` int(11) DEFAULT NULL,
+  `PE2` int(11) DEFAULT NULL,
+  `Livello1` int(11) DEFAULT NULL,
+  `Livello2` int(11) DEFAULT NULL,
+  `Master` int(11) DEFAULT NULL,
+  `Tipo` int(11) DEFAULT '1',
+  `DtISOCreazione` int(11) DEFAULT NULL,
+  `TimerCreazione` int(11) DEFAULT NULL,  
+  `HideClasse` smallint(6) DEFAULT NULL,
+  `HidePE` smallint(6) DEFAULT NULL,
+  `HideLivello` smallint(6) DEFAULT NULL,
+  `HideBg` smallint(6) DEFAULT '0',
+
+Dopo:
+`Razza` int(11) DEFAULT '8',
+`Allineamento` int(11) DEFAULT '10',
+`Biclasse` tinyint(4) DEFAULT NULL,
+`Classe1` int(11) DEFAULT '14',
+`Classe2` int(11) DEFAULT '14',
+
+
+Master:
+`MasterID` int(11) DEFAULT NULL,
+`IdAvv` int(11) DEFAULT NULL,

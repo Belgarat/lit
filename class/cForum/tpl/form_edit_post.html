@@ -1,0 +1,64 @@
+<div class="box_reply" id="<!-- ID_DIV -->" style="">
+    <form class="form" name="cFormEdit" enctype="" method="post" action="<!-- ACTION -->" id="<!-- ID_FORM -->"> 
+        <table class="form">
+            <tbody>
+            <tr>
+                <td class="formlabel">
+
+                </td>
+                <td>
+                    <input class="form" type="hidden" name="txtThread" id="id_txtThread" value="<!-- ID_THREAD -->" readonly="">
+                    <input class="form" type="hidden" name="txtTopic" id="id_txtTopic" value="<!-- ID_TOPIC -->" readonly="">
+                    <input type="hidden" name="txtEditIdPost" id="id_txtEditIdPost" value="<!-- ID_POST -->" size="5">
+                </td>
+            </tr>
+            <tr>
+                <td class="formlabel">
+                    <label class="formlabel" id="lblUtente" title="Utente">Utente: </label> 
+                </td>
+                <td>
+                    <input class="form" type="text" name="txtEditNome" id="id_txtEditNome" value="<!-- POSTER -->" size="20" onfocus="$('help_bar').innerHTML='Nome utente del post'" <!-- READONLY -->>
+                </td>
+            </tr>
+            <tr>
+                <td class="formlabel">
+                        <label id="lblTitolo" title="Titolo">Titolo: </label> 
+                </td>
+                <td>
+                    <input class="form" type="text" name="txtEditOggetto" id="id_txtEditOggetto" value="<!-- OBJ -->" size="50" onfocus="$('help_bar').innerHTML='Inserire oggetto del post'">
+                </td>
+            </tr>
+            <tr>
+                <td class="formlabel">
+                    <label id="lblMessaggio" title="Messaggio">Messaggio: </label> 
+                </td>
+                <td>
+                     <textarea class="form" rows="20" name="txtEditMessaggio" id="id_txtEditMessaggio" cols="53" onfocus="$('help_bar').innerHTML='Inserire messaggio'"><!-- MSG --></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="formlabel">
+                    <label id="lblFirma" title="Firma">Firma: </label> 
+                </td>
+                <td>
+                    <textarea class="form" name="txtEditFirma" id="id_txtEditFirma" row="3" cols="53" onfocus="$('help_bar').innerHTML='Inserire firma utente'"><!-- SIGN --></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="formlabel">
+                </td>
+                <td style="text-align:left;">
+                        <input type="button" value="Salva" name="bSalva" onclick="javascript:
+                        new Ajax.Updater('id_boxavvisi', 'src/ajax/forum_form_save.php', {method: 'post',parameters: Form.serialize($('formEditPost'))}); 
+                        ffade('formEditPost');
+                        new Ajax.Updater(id_post, 'src/ajax/forum_post_read.php', {method: 'post',parameters: Form.serialize($('formEditPost'))});
+                        ">
+                </td>
+            </tr>
+        </tbody></table>
+        <h1 class="menu_bar">
+        <a id="aShowEditSmile">Smile</a> - <a id="aHideEditPost" href="#">Chiudi Edit</a>
+        </h1>
+        <h1 id="help_bar"></h1>
+    </form>
+</div>

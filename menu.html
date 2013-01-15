@@ -1,0 +1,70 @@
+<HTML>
+	<HEAD>
+		<title>Lux In tenebra Forum gdr on line - <?php echo $oPage->page_title; ?></title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+		<script type="text/javascript" src="/js/scriptaculous/lib/prototype.js"></script>
+		<script type="text/javascript" src="/js/scriptaculous/src/scriptaculous.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/pbf_amb.css">
+		<link rel="stylesheet" type="text/css" href="css/pbf_style.css">
+		<link rel="stylesheet" type="text/css" href="css/pbf_site.css">
+		<link rel="stylesheet" type="text/css" href="css/pbf_multimenuvert_new.css">
+		<link rel="stylesheet" type="text/css" href="css/noticeboard.css">
+		<!--[if IE]>
+			<link rel="stylesheet" type="text/css" href="css/pbf_site_ie.css">
+			<link rel="stylesheet" type="text/css" href="css/pbf_multimenuvert_ie.css">
+		<![endif]-->
+		<script type="text/javascript" src="js/multimenu.js"></script>
+		<script type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script>
+		<script type="text/javascript" src="js/ajax.js"></script>
+                <link rel="alternate" type="application/rss+xml" title="LiT - Tutte le news" href="feed/public/allnews.rss" />
+                <link rel="alternate" type="application/rss+xml" title="LiT - Aggiornamenti dal forum in game e OT" href="feed/public/forum.rss" />
+		<link rel="stylesheet" type="text/css" href="css/pbf_content.css">
+		<script type="text/javascript">
+                        var MenuAttivo = null;
+                        var precedente;
+
+                        Event.observe(window.document,'dom:loaded',init);
+				
+		        function apriupload(lForm)
+		        {
+		        open("./"+lForm, "", "width="+500+",height="+400+",scrollbars=yes, left="+((screen.width-500)/2)+",top="+((screen.height-600)/2)+"");
+		        }
+		        function Open_url(IdDiv,lForm)
+		        {
+		        	new Ajax.Updater(IdDiv, lForm);
+		        }
+			new Ajax.PeriodicalUpdater('id_num_online','src/ajax/utente_users_online.php',{frequency: 12});
+                       function getcords(e,position){
+                                mouseX = Event.pointerX(e) - position[0];
+                                mouseY = Event.pointerY(e) - position[1];
+                                //for testing put the mouse cords in a div for testing purposes
+                                $('debug').innerHTML = 'mouseX:' + mouseX + '-- mouseY:' + mouseY;
+                        }
+                        //Event.observe(document, 'mousemove', getcords);
+		</script>
+	</HEAD>
+        <body id="body">
+            <ul class="mnu"><li><a href="javascript:void(0);" onclick="javascript:Effect.toggle('menu','blind');">Menu</a></li></ul>
+            <div id="div_menu">
+            <ul id="menu" class="mnu mnu_primary" style="display:none;">
+                <li class="mnu"><a href="javascript:void(0);" onclick="javascript:Effect.toggle('ambientazione','blind');">Primo</a></li>
+                <li class="mnu"><a>Secondo</a></li>
+                <li class="mnu"><a>Terzo</a></li>
+                <li class="mnu"><a>Quarto</a></li>
+                <li class="mnu"><a>Quinto</a></li>
+                <li class="mnu"><a>Sesto</a></li>
+                <li class="mnu mnu_opt"><a href="javascript:void(0);" onclick="javascript:Effect.toggle('menu','blind');">X</a></li>
+            </ul>
+            <ul id="ambientazione" class="mnu" style="display:none;">
+                <li class="mnu mnu_opt"><a href="javascript:void(0);" onclick="javascript:Effect.Appear('menu');Effect.toggle('ambientazione','blind');"><-<-</a></li>
+                <li class="mnu"><a>Ora</a></li>
+                <li class="mnu"><a>Questo</a></li>
+                <li class="mnu"><a>il secondo</a></li>
+                <li class="mnu"><a>Menu che vado ad implementare</a></li>
+                <li class="mnu"><a>Per vedere</a></li>
+                <li class="mnu"><a>Cosa succede</a></li>
+                <li class="mnu mnu_opt"><a href="javascript:void(0);" onclick="javascript:$('menu').toggle();Effect.toggle('ambientazione','blind');">X</a></li>
+            </ul>
+            </div>
+        </body>
+</HTML>

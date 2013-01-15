@@ -1,0 +1,38 @@
+<?php
+/*
+ * Created on 09/feb/08
+ *
+ * To change the template for this generated file go to
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+ */
+//session_start();
+$oUt = new cUtente($oConn);
+$form = new cForm();
+$oUt->id = intval($_SESSION["ID"]);
+$oUt->Leggi();
+
+$oForum = new cForum();
+
+$oForum->get_id_thread(@$_GET["IdTh"]);
+
+$oForum->get_id_post(@$_GET["IdPs"]);
+
+//mostra la barra di navigazione forum 
+$oForum->show_bar();
+?>
+<hr>
+<?php
+//if nidificati per la scelta della visualizzazione. 
+if($oForum->put_id_thread()==0){
+	$oForum->show_threads($oUt->fArrayPermission($_SERVER["SITO"],"cForum_thread"));
+}else{
+	if($oForum->put_id_post()==0){
+		$oForum->show_thread($oUt->fArrayPermission($_SERVER["SITO"],"cForum_thread"));
+	}else{
+		$oForum->page_bar(@$_GET["Offset"],$_SERVER["SCRIPT_NAME"] . "?IdP=" . @$_GET["IdP"] . "&IdTh=" . @$_GET["IdTh"] . "&IdPs=" . @$_GET["IdPs"]);
+		$oForum->show_form_reply($oUt->dati["Name"]);		
+		$oForum->show_post($oUt->fArrayPermission($_SERVER["SITO"],"cForum_thread"));
+	}
+}
+
+?>

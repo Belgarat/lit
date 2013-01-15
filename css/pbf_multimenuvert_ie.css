@@ -1,0 +1,83 @@
+#vertnav{margin:0px;list-style: none;}
+.vertical{
+	margin:0px;
+	z-index:150;
+}
+
+#vertnav li{ border-width:1px 1px 1px 1px;}
+
+#vertnav ul, #vertnav ul ul, #vertnav ul ul ul{
+    margin:0px;
+}
+
+#vertnav li:hover ul ul, #vertnav li:hover ul ul ul{
+    margin:0px;  
+}
+
+#vertnav li:hover ul, #vertnav ul li:hover ul, #vertnav ul ul li:hover ul{
+    margin:0px;
+}
+
+li>ul { 
+    margin:0px;
+}
+
+/* Win IE only \*/
+* html #vertnav li{float:left;} 
+/* end holly hack */
+
+#vertnav1{margin:0px;list-style: none;}
+.vertical{
+	margin:0px;
+	z-index:150;
+}
+
+#vertnav1 li{ border-width:1px 1px 1px 1px;}
+
+#vertnav1 ul, #vertnav1 ul ul, #vertnav1 ul ul ul{
+    margin:0px;
+}
+
+#vertnav1 li:hover ul ul, #vertnav1 li:hover ul ul ul{
+    margin:0px;  
+}
+
+#vertnav1 li:hover ul, #vertnav1 ul li:hover ul, #vertnav1 ul ul li:hover ul{
+    margin:0px;
+}
+
+li>ul { 
+    margin:0px;
+}
+
+/* Win IE only \*/
+* html #vertnav1 li{float:left;} 
+/* end holly hack */
+
+#vertnav2{margin:0px;list-style: none;}
+.vertical{
+	margin:0px;
+	z-index:150;
+}
+
+#vertnav2 li{ border-width:1px 1px 1px 1px;}
+
+#vertnav2 ul, #vertnav2 ul ul, #vertnav2 ul ul ul{
+    margin:0px;
+}
+
+#vertnav2 li:hover ul ul, #vertnav2 li:hover ul ul ul{
+    margin:0px;  
+}
+
+#vertnav2 li:hover ul, #vertnav2 ul li:hover ul, #vertnav2 ul ul li:hover ul{
+    margin:0px;
+}
+
+li>ul { 
+    margin:0px;
+}
+
+/* Win IE only \*/
+* html #vertnav2 li{float:left;} 
+/* end holly hack */

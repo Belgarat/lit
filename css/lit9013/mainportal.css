@@ -1,0 +1,87 @@
+BODY{
+	color:#9184A3;
+	font-family: 'Book Antiqua' , 'Tahoma, Verdana', 'Times New Roman';
+	text-align: justify;
+	margin: 0px;
+}
+.sfondo {
+	background-attachment: fixed;
+	background-image: url(../img/sfondobianco.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+p.titolo_presentazione{
+	text-align: center;
+	font-size: 12px;
+	padding-right:20px;
+	font-weight: bold;
+}
+p.firma_presentazione{
+	text-align: right;
+	font-size: 14px;
+	padding-right:20px;
+	font-style: italic;
+}
+p.presentazione{
+	text-align: justify;
+	font-size: 14px;
+	padding-right:20px;
+	line-height: 18px;
+}
+.MenuPrincipale {
+	letter-spacing: 5px;
+}
+.MenuSecondario {
+
+	letter-spacing: 2px;
+}
+A.M:link
+{
+	font-weight: bold;
+	color: #ffcc33;
+	letter-spacing: 5px;
+	text-decoration: none;
+}
+A.M:visited
+{
+	font-weight: bold;
+	color: #ffcc33;
+	letter-spacing: 5px;
+	text-decoration: none;
+}
+A.M:hover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+	letter-spacing: 5px;
+}
+A.M:active {
+	color: #FFFFFF;
+	text-decoration: none;
+	letter-spacing: 5px;
+
+}
+A.SM:link
+{
+	color: #ff9900;
+	letter-spacing: 2px;
+	text-decoration: none;
+}
+A.SM:visited
+{
+	color: #ff9900;
+	letter-spacing: 2px;
+	text-decoration: none;
+}
+A.SM:hover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+	letter-spacing: 2px;
+}
+A.SM:active {
+	color: #FFFFFF;
+	text-decoration: none;
+	letter-spacing: 2px;
+
+}
