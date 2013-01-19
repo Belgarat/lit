@@ -1,87 +1,89 @@
-BODY{
-	color:#9184A3;
-	font-family: 'Book Antiqua' , 'Tahoma, Verdana', 'Times New Roman';
-	text-align: justify;
-	margin: 0px;
+body {
+  color:#9184A3;
+  font-family: 'Book Antiqua' , 'Tahoma, Verdana', 'Times New Roman';
+  text-align: justify;
+  margin: 0px;
 }
-.sfondo {
-	background-attachment: fixed;
-	background-image: url(../img/sfondobianco.jpg);
-	background-repeat: no-repeat;
-	background-position: left top;
-}
-p.titolo_presentazione{
-	text-align: center;
-	font-size: 12px;
-	padding-right:20px;
-	font-weight: bold;
-}
-p.firma_presentazione{
-	text-align: right;
-	font-size: 14px;
-	padding-right:20px;
-	font-style: italic;
-}
-p.presentazione{
-	text-align: justify;
-	font-size: 14px;
-	padding-right:20px;
-	line-height: 18px;
-}
-.MenuPrincipale {
-	letter-spacing: 5px;
-}
-.MenuSecondario {
 
-	letter-spacing: 2px;
+#sfondo {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background-attachment: fixed;
+  background-image: url(../img/sfondobianco.jpg);
+  background-repeat: no-repeat;
+  background-position: left top;
 }
-A.M:link
-{
-	font-weight: bold;
-	color: #ffcc33;
-	letter-spacing: 5px;
-	text-decoration: none;
-}
-A.M:visited
-{
-	font-weight: bold;
-	color: #ffcc33;
-	letter-spacing: 5px;
-	text-decoration: none;
-}
-A.M:hover
-{
-	color: #FFFFFF;
-	text-decoration: none;
-	letter-spacing: 5px;
-}
-A.M:active {
-	color: #FFFFFF;
-	text-decoration: none;
-	letter-spacing: 5px;
 
+#pres {
+  height: 28em;
+  padding-left: 60%;
+  padding-top: 5%;
+  padding-right:20px;
 }
-A.SM:link
-{
-	color: #ff9900;
-	letter-spacing: 2px;
-	text-decoration: none;
-}
-A.SM:visited
-{
-	color: #ff9900;
-	letter-spacing: 2px;
-	text-decoration: none;
-}
-A.SM:hover
-{
-	color: #FFFFFF;
-	text-decoration: none;
-	letter-spacing: 2px;
-}
-A.SM:active {
-	color: #FFFFFF;
-	text-decoration: none;
-	letter-spacing: 2px;
 
+p.titolo_presentazione {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
 }
+
+p.firma_presentazione {
+  text-align: right;
+  font-size: 14px;
+  padding-right:20px;
+  font-style: italic;
+}
+
+p.presentazione {
+  text-align: justify;
+  font-size: 14px;
+  padding-right:20px;
+  line-height: 18px;
+}
+
+#MenuPrincipale {
+  height: 1.8em;
+  background-color: #9184A3;
+  margin: 0 .5em 0 .5em;
+  padding-top: .4em;
+  text-align: right;
+  color: #fff;
+}
+
+#MenuSecondario {
+  height: 1.8em;
+  background-color: #D4C7E4;
+  margin: 2px .5em 0 19em;
+}
+
+A.M {
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-decoration: none;
+  margin-left: .2em;
+}
+
+A.M:link {color: #ffcc33; }
+A.M:visited {color: #ffcc33; }
+A.M:hover {color: #FFFFFF; }
+A.M:active {color: #FFFFFF; }
+
+A.SM {
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+A.SM:link {color: #ff9900; }
+A.SM:visited {color: #ff9900; }
+A.SM:hover {color: #FFFFFF; }
+A.SM:active {color: #FFFFFF; }
+
+#ImmagineFondo {
+  margin-right: .5em;
+  margin-top: 1em;
+  text-align: right; 
+}
+
+
+
