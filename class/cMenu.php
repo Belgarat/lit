@@ -130,7 +130,7 @@ class cMenu{
                 $flag=true;
                 while($row=mysql_fetch_assoc($grp_submnu)){
                     if( $flag==true and $display==1 ){
-                        echo "<p class='submnu_opt'><a href=\"javascript:void(0);\" onclick=\"javascript:$('id_mnu_".$id_padre."').hide();$('id_mnu_".$id_back."').toggle('appear');\" title=\"Indietro\"> <-".$label."</a></p>";
+                        echo "<p class='submnu_opt'><a href=\"javascript:void(0);\" onclick=\"javascript:$('id_mnu_".$id_padre."').hide();$('id_mnu_".$id_back."').toggle('appear');\" title=\"Indietro\"> &lt;-".$label."</a></p>";
                         $flag=false;
                     }
                     $data = "./index.php?IdP=" . $row["id_pagina"];

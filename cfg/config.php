@@ -16,8 +16,9 @@ $database = "oldlit"; // if you fill in nothing database 'members' will be used.
 	define("DB_SERVER", "localhost");
 	define("DB_NAME", "oldlit");
 	define("DB_USERNAME", "root");
-	define("DB_PASSWORD", "123456");
-	
+#	define("DB_PASSWORD", "123456");
+	define("DB_PASSWORD", "sguluag99");
+
 	define("HTTP_ROOT", "");
 	define("HTTP_AJAX", "src/ajax");
 	define("HTTP_IMG", "img");

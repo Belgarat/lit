@@ -11,7 +11,7 @@ $oPg->set_user($_SERVER["SITO"],$oUt);
  * Apertura pagina
  */
 echo DOCTYPE;
-echo "<HTML>";
+echo "<html>";
 
 /*
  * Includo il tag HEAD e il tag di apertura body

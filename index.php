@@ -45,7 +45,6 @@
 	http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
 */
-
 session_start();
 
 require_once("./cfg/config.php");
@@ -57,7 +56,6 @@ $oDb->Open();
 //$q = new Query();
 //$q->fields = array("subdomain_name");
 //$q->tables = array("tbl_site");
-
 $url_section = explode(".",$_SERVER["SERVER_NAME"]);
 
 if($url_section[0]=="www"){
