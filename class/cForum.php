@@ -172,8 +172,8 @@ class cForum
 			<?php
 			if ($this->let_ArgumentThread () !=0 || $this->let_id_thread () != 0) {
 				//mostra la barra di navigazione forum 
-				$this->show_bar();
-				$this->div_smile();
+				$this->show_bar ();
+				$this->div_smile ();
 				?>
 				<div class="box_reply" id="id_boxavvisi" style="display:block;">
 				</div>
@@ -243,16 +243,16 @@ class cForum
 						$link_image = "<a href='".$this->url_script."&IdArg="
 						             .$value["id_argument"]."'>".$image."</a>";
 
-						$tpl = preg_replace("#<!-- ARG_TITLE -->#", $link, $tpl,1);
-						$tpl = preg_replace("#<!-- ARG_DESC -->#", $value["description"], $tpl,1);
-						$tpl = preg_replace("#<!-- ARG_IMG -->#", $link_image, $tpl,1);
+						$tpl = preg_replace ("#<!-- ARG_TITLE -->#", $link, $tpl, 1);
+						$tpl = preg_replace ("#<!-- ARG_DESC -->#", $value["description"], $tpl, 1);
+						$tpl = preg_replace ("#<!-- ARG_IMG -->#", $link_image, $tpl, 1);
 
-						$threads=$this->show_last_reply (
-							$this->findIdArgumentThread($value["id_argument"]), 4);
+						$threads = $this->show_last_reply (
+							$this->findIdArgumentThread ($value["id_argument"]), 4);
 
-						$last="";
+						$last = "";
 						if ($threads) {
-							foreach ($threads as $value) {
+							foreach ($threads as $v) {
 								$last = '<table class="LastPoster">';
 								$last.= '<tr>';
 								$last.= '<th>Poster</th>';
@@ -260,17 +260,17 @@ class cForum
 								$last.= '<th>Data</th>';
 
 								if ($threads) {
-									foreach ($threads as $key => $value) {
-										$last.= "<tr><td>".substr($value["Poster"],0,20)."</td>\r\n";
-										$last.= "<td>".substr($value["Subject"],0,15)."</td>\r\n";
-										$last.= "<td>".$this->_conv_data_iso($value["DtISO"],$value["Timer"])
+									foreach ($threads as $key => $v2) {
+										$last.= "<tr><td>".substr($v2["Poster"],0,20)."</td>\r\n";
+										$last.= "<td>".substr($v2["Subject"],0,15)."</td>\r\n";
+										$last.= "<td>".$this->_conv_data_iso($v2["DtISO"],$v2["Timer"])
 										       ."</td></tr>\r\n";
 									}
 								}
 
 								$last.= '</tr>';
 								$last.= '</table>';
-							}  // foreach $threads
+							}  // foreach $threads as $v
 						} else {
 							$last = "Nessun post o thread.";
 						}  // else di if $threads
@@ -815,7 +815,13 @@ class cForum
             }
         }
                                 
-	//mostra la lista dei topic relativi alla sezione indicata
+
+  // **************************************************************************
+  // SCOPO: mostra la lista dei topic relativi alla sezione indicata
+  // INPUT: $sAllow = permessi
+  // STORIA:
+  // **************************************************************************
+
 	public function show_thread($sAllow){
                 $aPermissionTopic = $this->oUt->fArrayPermission($this->let_id_sito(),'cForum_topic',$this->id_topic,$this->oUt->id, 'messagedb', 'SiteID', 'ID', 'IdUt');
 		if($sAllow["Show"]==1){
@@ -872,8 +878,8 @@ class cForum
 
                                 $totrec=(int)$this->tot_rec_topic($row[0]);
                                 $recpag=(int)$this->RecPag;
-                                $offset=(((int)($totrec/$recpag))*$recpag);
-
+                                $offset=(((int)(($totrec-1)/$recpag))*$recpag);
+echo "tot = $totrec, recpag = $recpag, offset = $offset\n";
                                 ?>
 						<div style="display: block;width:100%;text-align:right;">
 						</div>
@@ -994,25 +1000,37 @@ class cForum
 			}
 		}
 	}
-		
-	//mostra la lista dei topic relativi alla sezione indicata
-	public function show_topic($sAllow){
-		$oUt = new cUtente();
-                $tpl = implode("", file(SRV_ROOT . '/class/' . $this->classname . '/tpl/header.html'));
-                $inner_html="";
-		$aPermissionTopic = $this->oUt->fArrayPermission($this->let_id_sito(),'cForum_topic',$this->id_topic,$this->oUt->id, 'messagedb', 'SiteID', 'ID', 'IdUt');
-		$aPermissionPost = $this->oUt->fArrayPermission($this->let_id_sito(),'cForum_post',$this->id_topic,$this->oUt->id, 'messagedb', 'SiteID', 'ID', 'IdUt');
-         
-        
-		if(@$_GET["Offset"]==""){
-			$offset=0;
-		}else{
-			$offset=@$_GET["Offset"];
+
+
+  // **************************************************************************
+	// SCOPO: mostra la lista dei topic relativi alla sezione indicata
+  // INPUT: $sAllow = array con i permessi
+  // STORIA:
+  // **************************************************************************
+
+	public function show_topic ($sAllow) {
+		$oUt = new cUtente ();
+		$tpl = implode ("", file (SRV_ROOT . '/class/' . $this->classname . '/tpl/header.html'));
+		$inner_html = "";
+
+		// Controlla i permessi
+		$aPermissionTopic = $this->oUt->fArrayPermission (
+			$this->let_id_sito (), 'cForum_topic', $this->id_topic, $this->oUt->id,
+			'messagedb', 'SiteID', 'ID', 'IdUt');
+
+		$aPermissionPost = $this->oUt->fArrayPermission (
+			$this->let_id_sito (), 'cForum_post', $this->id_topic, $this->oUt->id,
+			'messagedb', 'SiteID', 'ID', 'IdUt');
+
+		if (@$_GET["Offset"] == "") {
+			$offset = 0;
+		} else {
+			$offset = @$_GET["Offset"];
 		}
 
-		if($sAllow["Show"]==1){
-			$q = new Query();
-			$q->fields = array("ID",
+		if ($sAllow["Show"] == 1) {
+			$q = new Query ();
+			$q->fields = array ("ID",
 									"SiteID",
 									"Poster",
 									"Subject",
@@ -1034,98 +1052,137 @@ class cForum
 									"IdUt",
 									"IdPg",
 									"letture");
-			$q->tables = array("messagedb");
-			$q->filters = "(((SiteID = '".$_SERVER["SITO"]."') and (ReplyID='" . $this->id_topic . "')) or (ID=" . $this->id_topic . "))";
+
+			$q->tables = array ("messagedb");
+			$q->filters = "(((SiteID = '".$_SERVER["SITO"]."') and (ReplyID='"
+			             .$this->id_topic . "')) or (ID=" . $this->id_topic . "))";
 			$q->sortfields = array("ID asc");
 			$q->limit = $offset . ",10";
 
-			if ($q->Open() ){
-				$inner_html="<ul class='barra_reply'>";
-                                $inner_html.="<a name='inizio'></a>";
+			if ($q->Open ()) {
+				// ----- Scrive i link fra il menu' delle pagine e i post -----
+				$inner_html = "<ul class='barra_reply'>";
+				$inner_html.= "<a name='inizio'></a>";
 
-                                if (($aPermissionTopic['Create']==1) or ($aPermissionPost['Create']==1)) {
-                                        $inner_html.="<li><a href='#fine'>Andiamo in fondo</a> - <a id='aShowReply' href='#inizio'>Reply topic</a></li><br><br \>";
-                                }else{
-                                        $inner_html.="<li><a href='#fine'>Andiamo in fondo</a></li><br \>";
-                                }
+				if (($aPermissionTopic['Create'] == 1) or ($aPermissionPost['Create'] == 1)) {
+					$inner_html.= "<li><a href='#fine'>Andiamo in fondo</a> - "
+					             ."<a id='aShowReply' href='#inizio'>Reply topic</a></li><br><br>";
+				} else {
+					$inner_html.="<li><a href='#fine'>Andiamo in fondo</a></li><br \>";
+				}
 				$inner_html.="</ul>";
 
-                                $tpl = preg_replace("#<!-- REPLY_BAR -->#", $inner_html, $tpl);
-                                $inner_html="";
-                                echo $tpl;
-                                
-				while($row = $q->GetNextRecord()){
-                                    $tpl = implode("", file(SRV_ROOT . '/class/' . $this->classname . '/tpl/post.html'));
-                                    $aPermissionPost = $this->oUt->fArrayPermission($this->let_id_sito(),'cForum_post',$row[0],$this->oUt->id, 'messagedb', 'SiteID', 'ID', 'IdUt');
+				$tpl = preg_replace ("#<!-- REPLY_BAR -->#", $inner_html, $tpl);
+        $inner_html = "";
 
-                                    $oUt->id = intval($row[19]);
-                                    $oUt->Leggi();
+				echo $tpl;
 
-                                    $tpl = preg_replace("#<!-- ID -->#", $row[0], $tpl);
+				// ----- Scrive i post -----                                
+				while ($row = $q->GetNextRecord ()) {
+					$tpl = implode ("", file (SRV_ROOT . '/class/' . $this->classname
+						.'/tpl/post.html'));
 
-                                    if($this->check_thread_type()==0){
-                                            if(!$this->check_master($row[19])){
-                                                    $oPg = new cPg;
-                                                    $oPg->set_id_pg($row[20]);
-                                                    $oPg->leggi();
-                                                    $tpl = preg_replace("#<!-- IMG_PROFILE -->#", $oPg->ary_descpg["photo"], $tpl);
-                                                    $tpl = preg_replace("#<!-- PG_NAME -->#", $oPg->ary_descpg["Username"], $tpl);
-                                            }else{
-                                                    $tpl = preg_replace("#<!-- IMG_PROFILE -->#", $oUt->dati["ImmUt"], $tpl);
-                                                    $tpl = preg_replace("#<!-- PG_HIDE -->#", "display:none;", $tpl);
-                                            }
-                                    }else{
-                                            $tpl = preg_replace("#<!-- IMG_PROFILE -->#", $oUt->dati["ImmUt"], $tpl);
-                                            $tpl = preg_replace("#<!-- PG_HIDE -->#", "display:none;", $tpl);
-                                    }
-                                    $tpl = preg_replace("#<!-- USER -->#", $oUt->dati["Name"], $tpl);
-                                    $tpl = preg_replace("#<!-- DT_REG -->#", cDate::ConvertDataISO($oUt->dati["DtISOCreazione"]), $tpl);
-                                    $tpl = preg_replace("#<!-- ANZIANITA -->#", $oUt->DescAnzianita, $tpl);
+					$aPermissionPost = $this->oUt->fArrayPermission (
+						$this->let_id_sito (), 'cForum_post', $row[0], $this->oUt->id,
+						'messagedb', 'SiteID', 'ID', 'IdUt');
+
+					$oUt->id = intval ($row[19]);
+					$oUt->Leggi ();
+
+					$tpl = preg_replace ("#<!-- ID -->#", $row[0], $tpl);
+
+					if ($this->check_thread_type () == 0) {
+						if (!$this->check_master ($row[19])) {
+							$oPg = new cPg;
+							$oPg->set_id_pg ($row[20]);
+							$oPg->leggi ();
+
+							$tpl = preg_replace("#<!-- IMG_PROFILE -->#", $oPg->ary_descpg["photo"], $tpl);
+							$tpl = preg_replace("#<!-- PG_NAME -->#", $oPg->ary_descpg["Username"], $tpl);
+						} else {
+							$tpl = preg_replace("#<!-- IMG_PROFILE -->#", $oUt->dati["ImmUt"], $tpl);
+							$tpl = preg_replace("#<!-- PG_HIDE -->#", "display:none;", $tpl);
+						}
+					} else {
+						$tpl = preg_replace ("#<!-- IMG_PROFILE -->#", $oUt->dati["ImmUt"], $tpl);
+						$tpl = preg_replace ("#<!-- PG_HIDE -->#", "display:none;", $tpl);
+					}
+
+				  $tpl = preg_replace ("#<!-- USER -->#", $oUt->dati["Name"], $tpl);
+					$tpl = preg_replace ("#<!-- DT_REG -->#",
+						cDate::ConvertDataISO ($oUt->dati["DtISOCreazione"]), $tpl);
+					$tpl = preg_replace("#<!-- ANZIANITA -->#", $oUt->DescAnzianita, $tpl);
                                     
-                                    if(($sAllow["Modify"]==1) OR ($aPermissionPost["Modify"]==1) OR ($aPermissionTopic["Modify"]==1)){
-                                            $url="url=" . $_SERVER["REQUEST_URI"] . "&id_post=" . $row[0];
-                                            $inner_html="<a id='aShowModifyPost' href='#inizio' ";
-                                            $inner_html.="onclick='javascript:ShowElement(\"formEdit\", \"" . HTTP_AJAX . "/forum_form_edit.php\", \"get\", \"url=" . $_SERVER["REQUEST_URI"] . "&id_post=" . $row[0] . "\", 1.5);'>";
-                                            $inner_html.="<img border=\"0\" height=\"22\" title=\"Edit\" border=0 src=\"" . SITE_IMG . "/ico/thread_edit.png\"></a>\r\n";
-                                            $tpl = preg_replace("#<!-- LINK_EDIT -->#", $inner_html, $tpl);
-                                            $inner_html="";
-                                    }
-                                    if(($sAllow["Delete"]==1) OR ($aPermissionPost["Delete"]==1) OR ($aPermissionTopic["Delete"]==1) OR ($aPermissionTopic["Delete"]==1)){
-                                            $inner_html=" <a href='javascript:void(0);' onclick='javascript:var udiv = new Ajax.Updater(\"" . $row[0] . "\", \"" . HTTP_AJAX . "/forum_post_delete.php\",{method: \"get\",parameters: \"url=" . $_SERVER["REQUEST_URI"] . "&answer=confirm&id_topic=" . $this->let_id_topic() . "&id_post=" . $row[0] . "\"});'><img border=\"0\" height=\"22\" title=\"Delete\" border=0 src=\"" . SITE_IMG . "/ico/thread_delete.png\"></a>\r\n";
-                                            $tpl = preg_replace("#<!-- LINK_DELETE -->#", $inner_html, $tpl);
-                                            $inner_html="";
-                                    }
-                                    $tpl = preg_replace("#<!-- HC -->#", SITE_IMG."/ico/hc.png", $tpl);
-                                    $tpl = preg_replace("#<!-- POST_TITLE -->#", $row[3], $tpl);
-                                    $tpl = preg_replace("#<!-- POST_DETAIL -->#", $row[2] . " il " . $row[5], $tpl);
-                                    if($this->check_master($row[19])){
-                                            $tpl = preg_replace("#<!-- CLASS_MASTER -->#", "master", $tpl);
-                                    }
-                                    $tpl = preg_replace("#<!-- POST_BODY -->#", nl2br($row[8]), $tpl);
-                                    $tpl = preg_replace("#<!-- POST_SIGN -->#", $row[9], $tpl);
-                                    
-                                    echo $tpl;
-      				}
-			}else{
+					if (($sAllow["Modify"] == 1) OR ($aPermissionPost["Modify"] == 1)
+					                             OR ($aPermissionTopic["Modify"] == 1)) {
+						$url = "url=" . $_SERVER["REQUEST_URI"] . "&id_post=" . $row[0];
+	          $inner_html = "<a id='aShowModifyPost' href='#inizio' ";
+	          $inner_html.= "onclick='javascript:ShowElement(\"formEdit\", \""
+						           .HTTP_AJAX . "/forum_form_edit.php\", \"get\", \"url="
+						           .$_SERVER["REQUEST_URI"] . "&id_post=" . $row[0]
+						           ."\", 1.5);'>";
+
+						$inner_html.= "<img border=\"0\" height=\"22\" title=\"Edit\" border=0 src=\""
+					             .SITE_IMG . "/ico/thread_edit.png\"></a>\r\n";
+						$tpl = preg_replace ("#<!-- LINK_EDIT -->#", $inner_html, $tpl);
+
+						$inner_html = "";
+					}
+
+					if (($sAllow["Delete"] == 1) OR ($aPermissionPost["Delete"] ==1 )
+					                             OR ($aPermissionTopic["Delete"] == 1)
+					                             OR ($aPermissionTopic["Delete"] == 1)) {
+						$inner_html = " <a href='javascript:void(0);' " 
+						             ."onclick='javascript:var udiv = new Ajax.Updater(\""
+						             .$row[0] . "\", \"" . HTTP_AJAX
+						             ."/forum_post_delete.php\",{method: \"get\",parameters: \"url="
+						             .$_SERVER["REQUEST_URI"] . "&answer=confirm&id_topic="
+						             .$this->let_id_topic () . "&id_post=" . $row[0]
+						             ."\"});'><img border=\"0\" height=\"22\" title=\"Delete\" border=0 src=\""
+						             . SITE_IMG . "/ico/thread_delete.png\"></a>\r\n";
+
+	          $tpl = preg_replace("#<!-- LINK_DELETE -->#", $inner_html, $tpl);
+
+						$inner_html = "";
+					}
+
+					$tpl = preg_replace ("#<!-- HC -->#", SITE_IMG."/ico/hc.png", $tpl);
+					$tpl = preg_replace ("#<!-- POST_TITLE -->#", $row[3], $tpl);
+					$tpl = preg_replace ("#<!-- POST_DETAIL -->#", $row[2] . " il " . $row[5], $tpl);
+
+					if ($this->check_master ($row[19])) {
+						$tpl = preg_replace ("#<!-- CLASS_MASTER -->#", "master", $tpl);
+					}
+
+					$tpl = preg_replace ("#<!-- POST_BODY -->#", nl2br ($row[8]), $tpl);
+					$tpl = preg_replace("#<!-- POST_SIGN -->#", $row[9], $tpl);
+
+					echo $tpl;
+				}  // while $row
+			} else {  // else di if $q->Open
 				echo "Nessun post presente!";
+			} // if $q->Open
+
+			$tpl = implode("", file(SRV_ROOT . '/class/' . $this->classname . '/tpl/footer.html'));
+			$inner_html = "<ul class='barra_reply'>";
+			$inner_html.= "<a name='fine'></a>";
+
+			if (($aPermissionTopic['Create'] == 1) or ($aPermissionPost['Create'] == 1)) {
+				$inner_html.= "<li><a href='#inizio'>Torniamo in cima</a> - "
+				  ."<a id='aShowReply' href='#inizio'>Reply topic</a></li><br><br \>";
+			} else {
+				$inner_html.= "<li><a href='#inizio'>Torniamo in cima</a></li><br \>";
 			}
-                        $tpl = implode("", file(SRV_ROOT . '/class/' . $this->classname . '/tpl/footer.html'));
-                        $inner_html="<ul class='barra_reply'>";
-                        $inner_html.="<a name='fine'></a>";
+			$inner_html.="</ul>";
 
-                        if (($aPermissionTopic['Create']==1) or ($aPermissionPost['Create']==1)) {
-                                $inner_html.="<li><a href='#inizio'>Torniamo in cima</a> - <a id='aShowReply' href='#inizio'>Reply topic</a></li><br><br \>";
-                        }else{
-                                $inner_html.="<li><a href='#inizio'>Torniamo in cima</a></li><br \>";
-                        }
-                        $inner_html.="</ul>";
+			$tpl = preg_replace("#<!-- REPLY_BAR -->#", $inner_html, $tpl);
 
-                        $tpl = preg_replace("#<!-- REPLY_BAR -->#", $inner_html, $tpl);
-                        $inner_html="";
-                        echo $tpl;
-			$q->Close();
-		}
-	}
+			$inner_html="";
+			echo $tpl;
+			$q->Close ();
+		}  // if ($sAllow["Show"] == 1)
+	}  // END FUNCTION SHOW_TOPIC
+
 
 	//mostra il contenuto di un singolo post, usato nella funzione di aggiornamento ajax
 	public function show_single_post($sAllow){
