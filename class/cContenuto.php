@@ -117,151 +117,191 @@ class cContent extends cPage
  		}
 	 	return $stringa;
  	}
+
+
+  // --------------------------------------------------------------------------
+  // SCOPO: elabora e mostra il contenuto della pagina
+  // INPUT: $iIdP = indice della pagina da mostrare
+  //        $fAllow = ???
+  // STORIA:
+  // --------------------------------------------------------------------------
  	
-	function show($iIdP,$fAllow=1){
+	function show ($iIdP, $fAllow = 1) {
 		//echo "ciao" . $this->id_sito;
 		//echo "id_sito: " . $this->oUt->id;
  		$txt = new cText;
  		$img = new cImage;
  		$att = new cAttach;
- 		$txt->set_id_sito($this->id_sito);
- 		$img->set_id_sito($this->id_sito);
- 		$att->set_id_sito($this->id_sito);
-                
- 		switch($this->viewmode){
- 		
- 		case "normal":
-			/*ricava l'id del contenuto*/
-			$iIdC = $this->read_id_content($iIdP);
+ 		$txt->set_id_sito ($this->id_sito);
+ 		$img->set_id_sito ($this->id_sito);
+ 		$att->set_id_sito ($this->id_sito);
 
-			if (!$iIdC==0){
-				
-				/*incrocia le tabella tbl_rel_pag_cont e entrambe le tabelle tbl_contenuto e tbl_tipocontenuto per ottenere la pagina completa*/
-				$sSql="select distinct idC,tbl_cont.id_sito,tbl_cont.idtipo,tbl_cont.idcont_tab,tbl_cont.nome_tabella from tbl_rel_pag_cont, ";
-				$sSql.="(select tbl_contenuto.id_sito,tbl_contenuto.id, tbl_contenuto.idtipo,tbl_contenuto.idcont_tab, tbl_tipocontenuto.descrizione,nome_tabella from tbl_contenuto, tbl_tipocontenuto where tbl_contenuto.idtipo=tbl_tipocontenuto.id) as tbl_cont "; 
-				$sSql.="where tbl_cont.id_sito='" . $this->id_sito . "' and tbl_cont.id=" . $iIdC . " and idC=" . $iIdC . " order by tbl_cont.idtipo, tbl_cont.idcont_tab;";
+ 		switch ($this->viewmode) {
+
+ 		case "normal":
+			/* ricava l'id del contenuto */
+			$iIdC = $this->read_id_content ($iIdP);
+
+			if (!$iIdC == 0) {
+
+				/* incrocia la tabella 'tbl_rel_pag_cont' e entrambe le tabelle
+        'tbl_contenuto' e 'tbl_tipocontenuto' per ottenere la pagina completa */
+				$sSql = "select distinct idC,tbl_cont.id_sito,tbl_cont.idtipo,"
+				        ."tbl_cont.idcont_tab,tbl_cont.nome_tabella "
+				        ."from tbl_rel_pag_cont, ";
+
+				$sSql.= "(select tbl_contenuto.id_sito,tbl_contenuto.id, "
+				       ."tbl_contenuto.idtipo,tbl_contenuto.idcont_tab, "
+				       ."tbl_tipocontenuto.descrizione,nome_tabella "
+				       ."from tbl_contenuto, tbl_tipocontenuto "
+				       ."where tbl_contenuto.idtipo=tbl_tipocontenuto.id) as tbl_cont "; 
+
+				$sSql.= "where tbl_cont.id_sito='" . $this->id_sito
+				       ."' and tbl_cont.id=" . $iIdC . " and idC=" . $iIdC
+				       ." order by tbl_cont.idtipo, tbl_cont.idcont_tab;";
 				
 				$risultato = mysql_query($sSql);
-				if(!$risultato){
+
+				if (!$risultato) {
 					echo "Nessun contenuto";
-				}else{
+				} else {
 					$iC=0;
 
-					while($row=mysql_fetch_assoc($risultato)){
-						switch($row["idtipo"]){
+					while ($row = mysql_fetch_assoc ($risultato)) {
+						switch ($row["idtipo"]) {
 							case 1:
-								$txt->id=$row["idcont_tab"];
-								$testo=$txt->read();
-								if($this->bComment_enable){
-									$aComments=$txt->read_comments();
+								$txt->id = $row["idcont_tab"];
+								$testo = $txt->read ();
+								if ($this->bComment_enable) {
+									$aComments=$txt->read_comments ();
 								}
 								break;
 							case 2:
-								$img->id=$row["idcont_tab"];
-								$immagini=$img->read();
-								$txt->body = $this->format_image($txt->body,$img->id,$img->title,$img->subtitle,$img->path);
+								$img->id = $row["idcont_tab"];
+								$immagini = $img->read ();
+								$txt->body = $this->format_image ($txt->body, $img->id, $img->title, $img->subtitle, $img->path);
 								break;
 							case 3:
-								$att->id=$row["idcont_tab"];
-								$allegati=$att->read();
-								$txt->body = $this->format_attach($txt->body,$att->id,$att->title,$att->subtitle,$att->path);
+								$att->id = $row["idcont_tab"];
+								$allegati = $att->read();
+								$txt->body = $this->format_attach($txt->body, $att->id, $att->title, $att->subtitle, $att->path);
 								break;
 							default:
 								break;						
-						}
-					}
-					$txt->body=$this->tag_text_filter($txt->body);
-					$this->show_content($txt->title,$txt->subtitle,$txt->body,$txt->sign, $txt->id, $aComments);
-					mysql_free_result($risultato);
-				}
-			}else{
-						$aPagina=$this->read_page($iIdP);
-						/*test per aggiungere o togliere barra dall'address del file*/
-						if(substr($aPagina["page_address"],0,1)!="/"){
-							$aPagina["page_address"]="/".$aPagina["page_address"];
-						}
+						}  //switch
+					}  // while
 
-						if (($iIdP!=-1)){
-                                                    if ($aPagina["classname"]=="") {
-                                                        require_once(SRV_ROOT . $aPagina["page_address"]);
-                                                    } else {
-                                                        if($aPagina){
-                                                            if($this->manage){
-                                                                require_once(SRV_ROOT . $aPagina["page_address"]);
-                                                                $objClass = new $aPagina["classname"];
-                                                                $objClass->set_id_sito($this->let_id_sito());
-                                                                $objClass->set_user($this->let_id_sito(),$this->oUt);
-                                                                echo "<div id='contenuto_body'>";
-                                                                $objClass->show_manage($this->opt);
-                                                                echo "</div>";
-                                                            }else{
-                                                                require_once(SRV_ROOT . $aPagina["page_address"]);
-                                                                $objClass = new $aPagina["classname"];
-                                                                $objClass->set_id_sito($this->let_id_sito());
-                                                                $objClass->set_user($this->let_id_sito(),$this->oUt);
-                                                                echo "<div id='contenuto_body'>";
-                                                                $objClass->show($this->opt);
-                                                                echo "</div>";
-                                                            }
-                                                        }
-                                                    }
-						}
-			}
+					$txt->body = $this->tag_text_filter ($txt->body);
+					$this->show_content ($txt->title, $txt->subtitle, $txt->body, $txt->sign, $txt->id, $aComments);
+					mysql_free_result ($risultato);
+				}  // else di if (!$risultato)
+			} else {  // if (!$iIdC)
+				$aPagina = $this->read_page($iIdP);
+
+				/*test per aggiungere o togliere barra dall'address del file*/
+				if(substr ($aPagina["page_address"], 0, 1) != "/") {
+					$aPagina["page_address"] = "/".$aPagina["page_address"];
+				}
+
+				if ($iIdP != -1) {
+					if ($aPagina["classname"] == "") {
+					  require_once (SRV_ROOT . $aPagina["page_address"]);
+					} else {
+						if ($aPagina) {
+							if ($this->manage) {
+								require_once (SRV_ROOT . $aPagina["page_address"]);
+								$objClass = new $aPagina["classname"];
+								$objClass->set_id_sito ($this->let_id_sito ());
+								$objClass->set_user ($this->let_id_sito (), $this->oUt);
+								echo "<div id='contenuto_body'>";
+								$objClass->show_manage ($this->opt);
+								echo "</div>";
+							} else {
+								require_once (SRV_ROOT . $aPagina["page_address"]);
+								$objClass = new $aPagina["classname"];
+								$objClass->set_id_sito ($this->let_id_sito ());
+								$objClass->set_user ($this->let_id_sito (),$this->oUt);
+								echo "<div id='contenuto_body'>";
+								$objClass->show($this->opt);
+								echo "</div>";
+							}  // else di if ($this->manage)
+						}  // if ($aPagina)
+					}  // else di if ($aPagina["classname"])
+				}  // if ($iIdP)
+			}  // else di if (!$iIdC)
 			break;
+
 		case "blog":
 			/*return array with list content*/			
-			$iIdP = $this->read_content_list($this->blog_parent_menu);
+			$iIdP = $this->read_content_list ($this->blog_parent_menu);
 
-			foreach($iIdP as $value){
+			foreach ($iIdP as $value) {
 				
-				$iIdC = $this->read_id_content($value);
+				$iIdC = $this->read_id_content ($value);
 
-				/*incrocia le tabella tbl_rel_pag_cont e entrambe le tabelle tbl_contenuto e tbl_tipocontenuto per ottenere la pagina completa*/
-				$sSql="select distinct idC,tbl_cont.id_sito,tbl_cont.idtipo,tbl_cont.idcont_tab,tbl_cont.nome_tabella from tbl_rel_pag_cont, ";
-				$sSql.="(select tbl_contenuto.id_sito,tbl_contenuto.id, tbl_contenuto.idtipo,tbl_contenuto.idcont_tab, tbl_tipocontenuto.descrizione,nome_tabella from tbl_contenuto, tbl_tipocontenuto where tbl_contenuto.idtipo=tbl_tipocontenuto.id) as tbl_cont "; 
-				$sSql.="where tbl_cont.id_sito='" . $this->id_sito . "' and tbl_cont.id=" . $iIdC . " and idC=" . $iIdC . " order by tbl_cont.idtipo, tbl_cont.idcont_tab;";
+				/* incrocia la tabella 'tbl_rel_pag_cont' e entrambe le tabelle
+				'tbl_contenuto' e 'tbl_tipocontenuto' per ottenere la pagina completa */
+				$sSql = "select distinct idC,tbl_cont.id_sito,tbl_cont.idtipo,"
+				       ."tbl_cont.idcont_tab,tbl_cont.nome_tabella "
+				       ."from tbl_rel_pag_cont, ";
+
+				$sSql.= "(select tbl_contenuto.id_sito,tbl_contenuto.id, "
+				       ."tbl_contenuto.idtipo,tbl_contenuto.idcont_tab, "
+				       ."tbl_tipocontenuto.descrizione,nome_tabella "
+				       ."from tbl_contenuto, tbl_tipocontenuto "
+				       ."where tbl_contenuto.idtipo=tbl_tipocontenuto.id) as tbl_cont ";
+ 
+				$sSql.= "where tbl_cont.id_sito='" . $this->id_sito
+			         ."' and tbl_cont.id=" . $iIdC . " and idC=" . $iIdC
+				       . " order by tbl_cont.idtipo, tbl_cont.idcont_tab;";
 				
-				$risultato = mysql_query($sSql);
-				if(!$risultato){
+				$risultato = mysql_query ($sSql);
+				if (!$risultato) {
 					echo "Nessun contenuto";
-				}else{
-					$iC=0;
+				} else {
+					$iC = 0;
 
-					while($row=mysql_fetch_assoc($risultato)){
-						switch($row["idtipo"]){
+					while ($row = mysql_fetch_assoc ($risultato)) {
+						switch($row["idtipo"]) {
 							case 1:
-								$txt->id=$row["idcont_tab"];
-								$testo=$txt->read();
-								if($this->bComment_enable){
-									$aComments=$txt->read_comments();
+								$txt->id = $row["idcont_tab"];
+								$testo = $txt->read ();
+								if ($this->bComment_enable) {
+									$aComments = $txt->read_comments ();
 								}
 								break;
 							case 2:
-								$img->id=$row["idcont_tab"];
-								$immagini=$img->read();
-								$txt->body = $this->format_image($txt->body,$img->id,$img->title,$img->subtitle,$img->path);
+								$img->id = $row["idcont_tab"];
+								$immagini = $img->read ();
+								$txt->body = $this->format_image($txt->body, $img->id, $img->title, $img->subtitle, $img->path);
 								break;
 							case 3:
-								$att->id=$row["idcont_tab"];
-								$allegati=$att->read();
-								$txt->body = $this->format_attach($txt->body,$att->id,$att->title,$att->subtitle,$att->path);
+								$att->id = $row["idcont_tab"];
+								$allegati = $att->read ();
+								$txt->body = $this->format_attach ($txt->body, $att->id, $att->title, $att->subtitle, $att->path);
 								break;
 							default:
-								break;						
-						}
-					}				
-					$txt->body=$this->tag_text_filter($txt->body);
-					$this->show_content($txt->title,$txt->subtitle,$txt->body,$txt->sign, $txt->id, $aComments);
-					mysql_free_result($risultato);
-				}
-			}			
-			break;
-		}
- 	}
+								break;					
+						}  // switch
+					}  // while
 
-	/**
-	 * Return the list of id pages the selected parent menu voice.
-	 **/
+					$txt->body = $this->tag_text_filter ($txt->body);
+					$this->show_content ($txt->title, $txt->subtitle, $txt->body, $txt->sign, $txt->id, $aComments);
+					mysql_free_result($risultato);
+				}  // else di if !$risultato
+			}  // foreach $iIdP
+			break;
+		}  // switch $this->viewmode
+	}  // END FUNCTION SHOW
+
+
+  // --------------------------------------------------------------------------
+  // SCOPO: Return the list of id pages the selected parent menu voice.
+  // INPUT: $parent_menu = ??
+  // OUTPUT: ??
+  // STORIA:
+  // --------------------------------------------------------------------------
+
 	private function read_content_list($parent_menu){
 		$q = new Query();
 		$q->tables = array("tbl_menu");
