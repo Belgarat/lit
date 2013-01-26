@@ -16,20 +16,20 @@ class cForum
 {
 	
 	private $url_script; //indica l'URL base senza parametri es: http://www.luxintenebra.net/index.php
-	private $id_thread; //contiene l'id del thread
-	private $id_topic; //contiene l'id del topic
-	private $id_post; //contiene l'id del post
-	private $id_pg; //contiene l'id del pg
-	
+	private $id_thread;  //contiene l'id del thread
+	private $id_topic;   //contiene l'id del topic
+	private $id_post;    //contiene l'id del post
+	private $id_pg;      //contiene l'id del pg
+
 	private $TitleThread;
 	private $DescThread;
 	private $ModThread;
 	private $TypeThread;
-        private $ArgumentThread;
+	private $ArgumentThread;
 	private $ImgThread;
 	private $OrdThread;
 	private $StatusThread;
-	
+
 	private $NamePoster;
 	private $ObjPost;
 	private $BodyPost;
@@ -38,10 +38,10 @@ class cForum
 	private $oUt;
 	private $form;
 	private $id_sito;
-	
+
 	public $classname;
 	public $version;
-        public $RecPag;
+	public $RecPag;
 	
 	function __construct(){
 	 	$this->classname = "cForum";
@@ -119,147 +119,170 @@ class cForum
             }
             return $rows;
         }
-        
-	public function show($opt=""){
-        $this->set_ArgumentThread(@$_GET["IdArg"]);
-	$this->set_id_thread(@$_GET["IdTh"]);
-	$this->set_id_topic(@$_GET["IdPs"]);
+  
+
+  // **************************************************************************
+  // SCOPO: elabora e mostra il contenuto della pagina
+  // INPUT: $opt = ??
+  // STORIA:
+  // **************************************************************************
+
+	public function show ($opt = "") {
+		$this->set_ArgumentThread(@$_GET["IdArg"]);
+		$this->set_id_thread(@$_GET["IdTh"]);
+		$this->set_id_topic(@$_GET["IdPs"]);
 	
 	//$aPermission=$this->oUt->fArrayPermission($_SERVER["SITO"],"cForum_thread");
 
-	switch ($_POST["bSalva"]) {
+		switch ($_POST["bSalva"]) {
 		case "Reply":
+			$this->set_id_post ($_POST["txtIdPost"]);
+			$this->set_NamePoster ($_POST["txtNome"]);
+			$this->set_ObjPost ($_POST["txtOggetto"]);
+			$this->set_BodyPost ($_POST["txtMessaggio"]);
+			$this->set_SignPost ($_POST["txtFirma"]);
 			
-			$this->set_id_post($_POST["txtIdPost"]);
-		
-			$this->set_NamePoster($_POST["txtNome"]);
-		
-			$this->set_ObjPost($_POST["txtOggetto"]);
-
-			$this->set_BodyPost($_POST["txtMessaggio"]);
-
-			$this->set_SignPost($_POST["txtFirma"]);
-			
-			if ($this->insert_post()){
+			if ($this->insert_post()) {
 				echo "<p>Reply <i>" . $this->let_ObjPost() . "</i> completato!</p>\r\n";
 			} else {
-				echo "Reply <i>" . $this->let_ObjPost() . "</i> <SPAN style='color: red'>fallito!</SPAN><br \>Contattare gli admin del sito!<br \><br \>\r\n";
+				echo "Reply <i>" . $this->let_ObjPost()
+				    .'</i> <span style="color: red">fallito!</span>'
+				    ."<br>Contattare gli admin del sito!<br><br>\r\n";
 			}
-	
+
 		case "EditPost":
-		
-			$this->set_id_post($_POST["txtEditIdPost"]);
-		
-			$this->set_NamePoster($_POST["txtEditNome"]);
-		
-			$this->set_ObjPost($_POST["txtEditOggetto"]);
+			$this->set_id_post ($_POST["txtEditIdPost"]);
+			$this->set_NamePoster ($_POST["txtEditNome"]);
+			$this->set_ObjPost ($_POST["txtEditOggetto"]);
+			$this->set_BodyPost ($_POST["txtEditMessaggio"]);
+			$this->set_SignPost ($_POST["txtEditFirma"]);		
 
-			$this->set_BodyPost($_POST["txtEditMessaggio"]);
-
-			$this->set_SignPost($_POST["txtEditFirma"]);		
-
-			if ($this->update_post()){
-				echo "<p>Aggiornamento <i>" . $this->let_ObjPost() . "</i> effettuato!</p>\r\n";
+			if ($this->update_post ()) {
+				echo "<p>Aggiornamento <i>" . $this->let_ObjPost ()
+				    ."</i> effettuato!</p>\r\n";
 			} else {
-				echo "Aggiornamento <i>" . $this->let_ObjPost() . "</i> <SPAN style='color: red'>fallito!</SPAN><br \>Contattare gli admin del sito!<br \><br \>\r\n";
+				echo "Aggiornamento <i>" . $this->let_ObjPost()
+				    .'</i> <span style="color: red">fallito!</span>'
+				    ."<br>Contattare gli admin del sito!<br><br>\r\n";
 			}
-		
-		default:
-                    ?>
-                    <div id="id_forum" style="position:relative;">
-                    <?php
-                    if($this->let_ArgumentThread()!=0 || $this->let_id_thread()!=0){
-                        //mostra la barra di navigazione forum 
-                        $this->show_bar();
-                        ?>
-                        <?php
-                        $this->div_smile();
-                        ?>
-                        <div class="box_reply" id="id_boxavvisi" style="display:block;">
-                        </div>
-                        <?php
-                        //if nidificati per la scelta della visualizzazione. 
-                        if($this->let_ArgumentThread()!=0){
-                            ?>
-                            <div class="box_reply" id="formInsertThread" style="display:none;">
-                            <?php $this->show_thread_form_insert(); ?>
-                            </div>
-                            <div class="box_reply" id="formEditThread" style="display:none;">
-                            <?php $this->show_thread_form_edit(); ?>
-                            </div>
-                            <div class="box_reply" id="formConfirmDelete" style="display:none;">
-                            </div>
-                            <?php
-                            $this->show_threads($this->aPermission,$this->let_ArgumentThread());
-                        }else{
-                            if($this->let_id_topic()==0){
-                                $this->show_form_reply($this->oUt->dati["Name"]);
-                                ?>					
-                                <div class="box_reply" id="formEditPost" style="display:none;">
-                                <?php $this->show_form_edit($this->oUt->dati["Name"]); ?>
-                                </div>
-                                <div class="box_reply" id="formConfirmDelete" style="display:none;">
-                                </div>
-                                <?php
-                                $this->show_thread($this->aPermission);	
-                            }else{
-                                $this->page_bar(@$_GET["Offset"],$_SERVER["SCRIPT_NAME"] . "?IdP=" . @$_GET["IdP"] . "&IdTh=" . @$_GET["IdTh"] . "&IdPs=" . @$_GET["IdPs"]);
 
-                                $this->show_form_reply($this->oUt->dati["Name"]);
-                                ?>
-                                <div class="box_reply" id="formEditPost" style="display:none;">
-                                <?php $this->show_form_Edit($this->oUt->dati["Name"]); ?>
-                                </div>
-                                <div class="box_reply" id="formConfirmDelete" style="display:none;">
-                                </div>
-                                <?php
-                                $this->show_topic($this->aPermission);
-                                $this->page_bar(@$_GET["Offset"],$_SERVER["SCRIPT_NAME"] . "?IdP=" . @$_GET["IdP"] . "&IdTh=" . @$_GET["IdTh"] . "&IdPs=" . @$_GET["IdPs"]);
-                            }
-                        }
-                        ?>
-                        </div>
-                        <?php
-                    }else{
-                        $tpl = implode("", file(SRV_ROOT . '/class/' . $this->classname . '/tpl/argument.phtml'));
-                        $ary_arguments=$this->findAll("tbl_forum_argument","id_sito=".$_SERVER["SITO"]);
-                        if($ary_arguments){
-                            foreach($ary_arguments as $value){
-                                $link="<a href='".$this->url_script."&IdArg=".$value["id_argument"]."'>".$value["name"]."</a>";
-                                $image="<img style='float:left;margin:4px;' src='".THEMES.$value["image"]."'>";
-                                $link_image="<a href='".$this->url_script."&IdArg=".$value["id_argument"]."'>".$image."</a>";
-                                $tpl = preg_replace("#<!-- ARG_TITLE -->#", $link, $tpl,1);
-                                $tpl = preg_replace("#<!-- ARG_DESC -->#", $value["description"], $tpl,1);
-                                $tpl = preg_replace("#<!-- ARG_IMG -->#", $link_image, $tpl,1);
-                                $threads=$this->show_last_reply($this->findIdArgumentThread($value["id_argument"]), 4);
-                                $last="";
-                                if($threads){
-                                    foreach($threads as $value){
-                                        $last='<table class="LastPoster">';
-                                        $last.='<tr>';
-                                        $last.='<th>Poster</th>';
-                                        $last.='<th>Oggetto</th>';
-                                        $last.='<th>Data</th>';
-                                        if($threads){
-                                            foreach($threads as $key => $value){
-                                                $last.="<tr><td>".substr($value["Poster"],0,20)."</td>\r\n";
-                                                $last.="<td>".substr($value["Subject"],0,15)."</td>\r\n";
-                                                $last.="<td>".$this->_conv_data_iso($value["DtISO"],$value["Timer"])."</td></tr>\r\n";
-                                            }
-                                        }
-                                        $last.='</tr>';
-                                        $last.='</table>';
-                                    }
-                                }else{
-                                       $last="Nessun post o thread.";
-                                }
-                                $tpl = preg_replace("#<!-- ARG_LAST -->#", $last, $tpl,1);
-                            }
-                        }
-                        echo $tpl;
-                    }
-		}
-	}
+		default:
+			?>
+			<div id="id_forum" style="position:relative;">
+			<?php
+			if ($this->let_ArgumentThread () !=0 || $this->let_id_thread () != 0) {
+				//mostra la barra di navigazione forum 
+				$this->show_bar();
+				$this->div_smile();
+				?>
+				<div class="box_reply" id="id_boxavvisi" style="display:block;">
+				</div>
+				<?php
+
+				//if nidificati per la scelta della visualizzazione. 
+				if ($this->let_ArgumentThread () != 0) {
+					?>
+					<div class="box_reply" id="formInsertThread" style="display:none;">
+					<?php $this->show_thread_form_insert (); ?>
+					</div>
+					<div class="box_reply" id="formEditThread" style="display:none;">
+					<?php $this->show_thread_form_edit (); ?>
+					</div>
+					<div class="box_reply" id="formConfirmDelete" style="display:none;">
+					</div>
+					<?php
+					$this->show_threads($this->aPermission, $this->let_ArgumentThread ());
+				} else {
+					if ($this->let_id_topic () == 0) {
+						$this->show_form_reply($this->oUt->dati["Name"]);
+						?>					
+						<div class="box_reply" id="formEditPost" style="display:none;">
+						<?php $this->show_form_edit ($this->oUt->dati["Name"]); ?>
+						</div>
+						<div class="box_reply" id="formConfirmDelete" style="display:none;">
+						</div>
+						<?php
+						$this->show_thread($this->aPermission);	
+					} else {
+						$this->page_bar(@$_GET["Offset"], $_SERVER["SCRIPT_NAME"]
+						                                 ."?IdP=" . @$_GET["IdP"]
+						                                 ."&IdTh=" . @$_GET["IdTh"]
+						                                 ."&IdPs=" . @$_GET["IdPs"]);
+
+						$this->show_form_reply ($this->oUt->dati["Name"]);
+						?>
+						<div class="box_reply" id="formEditPost" style="display:none;">
+						<?php $this->show_form_Edit ($this->oUt->dati["Name"]); ?>
+						</div>
+						<div class="box_reply" id="formConfirmDelete" style="display:none;">
+						</div>
+						<?php
+						$this->show_topic ($this->aPermission);
+						$this->page_bar (@$_GET["Offset"], $_SERVER["SCRIPT_NAME"]
+						                                  ."?IdP=" . @$_GET["IdP"]
+						                                  ."&IdTh=" . @$_GET["IdTh"]
+						                                  ."&IdPs=" . @$_GET["IdPs"]);
+					}  // else di if $this->let_id_topic
+				}  // else di if $this->let_ArgumentThread
+
+				?>
+				</div>
+				<?php
+			} else { // appartenente ad if let_ArgumentThread || let_id_thread
+				$tpl = implode("", file(SRV_ROOT . '/class/' . $this->classname . '/tpl/argument.phtml'));
+				$ary_arguments=$this->findAll("tbl_forum_argument","id_sito=".$_SERVER["SITO"]);
+
+				if ($ary_arguments) {
+					foreach ($ary_arguments as $value) {
+						$link = "<a href='".$this->url_script."&IdArg="
+						       .$value["id_argument"]."'>".$value["name"]."</a>";
+
+						$image = "<img style='float:left;margin:4px;' src='"
+						        .THEMES.$value["image"]."'>";
+
+						$link_image = "<a href='".$this->url_script."&IdArg="
+						             .$value["id_argument"]."'>".$image."</a>";
+
+						$tpl = preg_replace("#<!-- ARG_TITLE -->#", $link, $tpl,1);
+						$tpl = preg_replace("#<!-- ARG_DESC -->#", $value["description"], $tpl,1);
+						$tpl = preg_replace("#<!-- ARG_IMG -->#", $link_image, $tpl,1);
+
+						$threads=$this->show_last_reply (
+							$this->findIdArgumentThread($value["id_argument"]), 4);
+
+						$last="";
+						if ($threads) {
+							foreach ($threads as $value) {
+								$last = '<table class="LastPoster">';
+								$last.= '<tr>';
+								$last.= '<th>Poster</th>';
+								$last.= '<th>Oggetto</th>';
+								$last.= '<th>Data</th>';
+
+								if ($threads) {
+									foreach ($threads as $key => $value) {
+										$last.= "<tr><td>".substr($value["Poster"],0,20)."</td>\r\n";
+										$last.= "<td>".substr($value["Subject"],0,15)."</td>\r\n";
+										$last.= "<td>".$this->_conv_data_iso($value["DtISO"],$value["Timer"])
+										       ."</td></tr>\r\n";
+									}
+								}
+
+								$last.= '</tr>';
+								$last.= '</table>';
+							}  // foreach $threads
+						} else {
+							$last = "Nessun post o thread.";
+						}  // else di if $threads
+
+						$tpl = preg_replace ("#<!-- ARG_LAST -->#", $last, $tpl, 1);
+					}  // foreach $ary_arguments
+				}  // if $ary_arguments
+
+				echo $tpl;
+			}  // else di if let_ArgumentThread || let_id_thread
+		}  // switch iniziale
+	} // END FUNCTION SHOW
 	
         public function findAll($table,$filter="",$fields="*"){ 
             $q = new Query();
@@ -2148,3 +2171,4 @@ class cForum
 
 }
 ?>
+
