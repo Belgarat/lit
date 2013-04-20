@@ -879,7 +879,6 @@ class cForum
                                 $totrec=(int)$this->tot_rec_topic($row[0]);
                                 $recpag=(int)$this->RecPag;
                                 $offset=(((int)(($totrec-1)/$recpag))*$recpag);
-echo "tot = $totrec, recpag = $recpag, offset = $offset\n";
                                 ?>
 						<div style="display: block;width:100%;text-align:right;">
 						</div>
